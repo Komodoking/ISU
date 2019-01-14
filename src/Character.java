@@ -1,7 +1,7 @@
 
-public class Character {
+public abstract class Character {
    static String name;
-   int str,dex,con,intel,wis,cha,ac,perc,hp,spd,cp,sp,ep,gp,pp,pb=2,splslot,splsave,splattack;
+   int pb=2;
     String feat[];
     String prof[];
     String equip[];
@@ -12,5 +12,17 @@ public class Character {
        n=name;
        
    }
+   abstract protected int hpget();
+   abstract protected int acget();
+   abstract protected int racemod();
+   abstract protected int perception();
+   abstract protected void magicuse();
+   abstract protected int getmoney();
+   public int getstat(int e){
+       
+   }
+ 
+       
+   
     
 }
