@@ -26,6 +26,7 @@ public class Dndsheet extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         txtlvl = new javax.swing.JLabel();
         lblcharstat = new javax.swing.JLabel();
         charmod = new javax.swing.JLabel();
@@ -57,24 +58,24 @@ public class Dndsheet extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
-        jRadioButton8 = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
-        jRadioButton10 = new javax.swing.JRadioButton();
-        jRadioButton11 = new javax.swing.JRadioButton();
-        jRadioButton12 = new javax.swing.JRadioButton();
-        jRadioButton13 = new javax.swing.JRadioButton();
-        jRadioButton14 = new javax.swing.JRadioButton();
-        jRadioButton15 = new javax.swing.JRadioButton();
-        jRadioButton16 = new javax.swing.JRadioButton();
-        jRadioButton17 = new javax.swing.JRadioButton();
-        jRadioButton18 = new javax.swing.JRadioButton();
+        btat = new javax.swing.JRadioButton();
+        btacr = new javax.swing.JRadioButton();
+        btsoh = new javax.swing.JRadioButton();
+        btstl = new javax.swing.JRadioButton();
+        btarc = new javax.swing.JRadioButton();
+        bthis = new javax.swing.JRadioButton();
+        btinv = new javax.swing.JRadioButton();
+        btnat = new javax.swing.JRadioButton();
+        btrel = new javax.swing.JRadioButton();
+        btah = new javax.swing.JRadioButton();
+        btins = new javax.swing.JRadioButton();
+        btmed = new javax.swing.JRadioButton();
+        btperc = new javax.swing.JRadioButton();
+        btwis = new javax.swing.JRadioButton();
+        btdec = new javax.swing.JRadioButton();
+        btint = new javax.swing.JRadioButton();
+        btperf = new javax.swing.JRadioButton();
+        btpers = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         jRadioButton19 = new javax.swing.JRadioButton();
         jRadioButton21 = new javax.swing.JRadioButton();
@@ -187,41 +188,59 @@ public class Dndsheet extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jRadioButton1.setText("Athleitics(STR)");
+        buttonGroup1.add(btat);
+        btat.setText("Athleitics(STR)");
 
-        jRadioButton2.setText("Acrobatics(DEX)");
+        buttonGroup1.add(btacr);
+        btacr.setText("Acrobatics(DEX)");
 
-        jRadioButton3.setText("Sleight of Hand(DEX)");
+        buttonGroup1.add(btsoh);
+        btsoh.setText("Sleight of Hand(DEX)");
 
-        jRadioButton4.setText("Stealth(DEX)");
+        buttonGroup1.add(btstl);
+        btstl.setText("Stealth(DEX)");
 
-        jRadioButton5.setText("Arcana(INT)");
+        buttonGroup1.add(btarc);
+        btarc.setText("Arcana(INT)");
 
-        jRadioButton6.setText("History(INT)");
+        buttonGroup1.add(bthis);
+        bthis.setText("History(INT)");
 
-        jRadioButton7.setText("Investigation(INT)");
+        buttonGroup1.add(btinv);
+        btinv.setText("Investigation(INT)");
 
-        jRadioButton8.setText("Nature(INT)");
+        buttonGroup1.add(btnat);
+        btnat.setText("Nature(INT)");
 
-        jRadioButton9.setText("Religion(INT)");
+        buttonGroup1.add(btrel);
+        btrel.setText("Religion(INT)");
 
-        jRadioButton10.setText("Animal Handling(WIS)");
+        buttonGroup1.add(btah);
+        btah.setText("Animal Handling(WIS)");
 
-        jRadioButton11.setText("Insight(WIS)");
+        buttonGroup1.add(btins);
+        btins.setText("Insight(WIS)");
 
-        jRadioButton12.setText("Medicine(WIS)");
+        buttonGroup1.add(btmed);
+        btmed.setText("Medicine(WIS)");
 
-        jRadioButton13.setText("Perception(WIS)");
+        buttonGroup1.add(btperc);
+        btperc.setText("Perception(WIS)");
 
-        jRadioButton14.setText("Survival(WIS)");
+        buttonGroup1.add(btwis);
+        btwis.setText("Survival(WIS)");
 
-        jRadioButton15.setText("Deception(CHA)");
+        buttonGroup1.add(btdec);
+        btdec.setText("Deception(CHA)");
 
-        jRadioButton16.setText("Intimidation(CHA)");
+        buttonGroup1.add(btint);
+        btint.setText("Intimidation(CHA)");
 
-        jRadioButton17.setText("Performance(CHA)");
+        buttonGroup1.add(btperf);
+        btperf.setText("Performance(CHA)");
 
-        jRadioButton18.setText("Persuasion(CHA)");
+        buttonGroup1.add(btpers);
+        btpers.setText("Persuasion(CHA)");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -232,70 +251,70 @@ public class Dndsheet extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jRadioButton10)
+                        .addComponent(btah)
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton4)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton5)
-                            .addComponent(jRadioButton6)
-                            .addComponent(jRadioButton7)
-                            .addComponent(jRadioButton8)
-                            .addComponent(jRadioButton9)
-                            .addComponent(jRadioButton11)
-                            .addComponent(jRadioButton12)
-                            .addComponent(jRadioButton13)
-                            .addComponent(jRadioButton14)
-                            .addComponent(jRadioButton16)
-                            .addComponent(jRadioButton17)
-                            .addComponent(jRadioButton18)
-                            .addComponent(jRadioButton3))
+                            .addComponent(btat)
+                            .addComponent(btstl)
+                            .addComponent(btacr)
+                            .addComponent(btarc)
+                            .addComponent(bthis)
+                            .addComponent(btinv)
+                            .addComponent(btnat)
+                            .addComponent(btrel)
+                            .addComponent(btins)
+                            .addComponent(btmed)
+                            .addComponent(btperc)
+                            .addComponent(btwis)
+                            .addComponent(btint)
+                            .addComponent(btperf)
+                            .addComponent(btpers)
+                            .addComponent(btsoh))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jRadioButton15)
+                .addComponent(btdec)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRadioButton1)
+                .addComponent(btat)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(btacr)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton3)
+                .addComponent(btsoh)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton4)
+                .addComponent(btstl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton5)
+                .addComponent(btarc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton6)
+                .addComponent(bthis)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton7)
+                .addComponent(btinv)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton8)
+                .addComponent(btnat)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton9)
+                .addComponent(btrel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton10)
+                .addComponent(btah)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton11)
+                .addComponent(btins)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton12)
+                .addComponent(btmed)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton13)
+                .addComponent(btperc)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton14)
+                .addComponent(btwis)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton15)
+                .addComponent(btdec)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton16)
+                .addComponent(btint)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton17)
+                .addComponent(btperf)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton18)
+                .addComponent(btpers)
                 .addGap(104, 104, 104))
         );
 
@@ -525,7 +544,7 @@ public class Dndsheet extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
+                        .addGap(172, 172, 172)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19)
                             .addGroup(layout.createSequentialGroup()
@@ -589,13 +608,14 @@ public class Dndsheet extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel14)
+                        .addComponent(jLabel15)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
@@ -747,6 +767,25 @@ public class Dndsheet extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton btacr;
+    private javax.swing.JRadioButton btah;
+    private javax.swing.JRadioButton btarc;
+    private javax.swing.JRadioButton btat;
+    private javax.swing.JRadioButton btdec;
+    private javax.swing.JRadioButton bthis;
+    private javax.swing.JRadioButton btins;
+    private javax.swing.JRadioButton btint;
+    private javax.swing.JRadioButton btinv;
+    private javax.swing.JRadioButton btmed;
+    private javax.swing.JRadioButton btnat;
+    private javax.swing.JRadioButton btperc;
+    private javax.swing.JRadioButton btperf;
+    private javax.swing.JRadioButton btpers;
+    private javax.swing.JRadioButton btrel;
+    private javax.swing.JRadioButton btsoh;
+    private javax.swing.JRadioButton btstl;
+    private javax.swing.JRadioButton btwis;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel charmod;
     private javax.swing.JLabel charmod1;
     private javax.swing.JLabel conmod;
@@ -799,30 +838,12 @@ public class Dndsheet extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JRadioButton jRadioButton11;
-    private javax.swing.JRadioButton jRadioButton12;
-    private javax.swing.JRadioButton jRadioButton13;
-    private javax.swing.JRadioButton jRadioButton14;
-    private javax.swing.JRadioButton jRadioButton15;
-    private javax.swing.JRadioButton jRadioButton16;
-    private javax.swing.JRadioButton jRadioButton17;
-    private javax.swing.JRadioButton jRadioButton18;
     private javax.swing.JRadioButton jRadioButton19;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton20;
     private javax.swing.JRadioButton jRadioButton21;
     private javax.swing.JRadioButton jRadioButton22;
     private javax.swing.JRadioButton jRadioButton23;
     private javax.swing.JRadioButton jRadioButton24;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
-    private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane5;
