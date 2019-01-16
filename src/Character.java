@@ -2,19 +2,22 @@
 public abstract class Character {
  String name;
  String race;
- String abilities[];
- String attacks[];
    int pb=2;
     static String backstory;
    public Character(String n){
        n=name;
        
    }
-   abstract protected int hpget();
-   abstract protected int acget();
-   abstract protected int perception();
+   abstract protected int hpget(int c);
+   abstract protected int acget(char t, int d);
+   abstract protected String[] equipement(char a);
+   abstract protected String[] abilities();
+   abstract protected void proficiencies(String );
+   abstract protected String[] attacks(int m,int p);
+   abstract protected int perception(int w);
    abstract protected void magicuse();
    abstract protected int getmoney();
+   abstract protected String[] Svthrow();
    public final int getstrength(int e){
             StatGetter g= new StatGetter();
             return g.getStat(e);
@@ -74,12 +77,26 @@ public abstract class Character {
      else
           return score-5;
  }
-       public void getRaceData(int str,int dex,int con,int INT,int wis,int cha, String race){
+       public void getRaceData(String race){
        if(race=="human"){
-
+           getChar(1);
+           getInte(1);
+           getCon(1);
+           getWis(1);
+           getstrength(1);
+           getDex(1);
+            
            
        } 
-       
+       if(race=="Elf"){
+        getChar(0);
+           getInte(1);
+           getCon(0);
+           getWis(0);
+           getstrength(0);
+           getDex(2);
+            
+       }
        }
    
     

@@ -1,3 +1,6 @@
+
+import javax.swing.JRadioButton;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,6 +16,8 @@ public class Dndsheet extends javax.swing.JFrame {
     /**
      * Creates new form Dndsheet
      */
+    int skillcount=0;
+    String skills[] = {null,null};        
     public Dndsheet() {
         initComponents();
     }
@@ -117,7 +122,9 @@ public class Dndsheet extends javax.swing.JFrame {
         jList4 = new javax.swing.JList<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -188,59 +195,131 @@ public class Dndsheet extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        buttonGroup1.add(btat);
         btat.setText("Athleitics(STR)");
+        btat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btatActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btacr);
         btacr.setText("Acrobatics(DEX)");
+        btacr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btacrActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btsoh);
         btsoh.setText("Sleight of Hand(DEX)");
+        btsoh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btsohActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btstl);
         btstl.setText("Stealth(DEX)");
+        btstl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btstlActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btarc);
         btarc.setText("Arcana(INT)");
+        btarc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btarcActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(bthis);
         bthis.setText("History(INT)");
+        bthis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bthisActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btinv);
         btinv.setText("Investigation(INT)");
+        btinv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btinvActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btnat);
         btnat.setText("Nature(INT)");
+        btnat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnatActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btrel);
         btrel.setText("Religion(INT)");
+        btrel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btrelActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btah);
         btah.setText("Animal Handling(WIS)");
+        btah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btahActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btins);
         btins.setText("Insight(WIS)");
+        btins.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btinsActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btmed);
         btmed.setText("Medicine(WIS)");
+        btmed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btmedActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btperc);
         btperc.setText("Perception(WIS)");
+        btperc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btpercActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btwis);
         btwis.setText("Survival(WIS)");
+        btwis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btwisActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btdec);
         btdec.setText("Deception(CHA)");
+        btdec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btdecActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btint);
         btint.setText("Intimidation(CHA)");
+        btint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btintActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btperf);
         btperf.setText("Performance(CHA)");
+        btperf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btperfActionPerformed(evt);
+            }
+        });
 
-        buttonGroup1.add(btpers);
         btpers.setText("Persuasion(CHA)");
+        btpers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btpersActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -468,9 +547,17 @@ public class Dndsheet extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList4);
 
         jMenu1.setText("Class");
+
+        jMenuItem1.setText("Fighter");
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Race");
+
+        jMenuItem2.setText("jMenuItem2");
+        jMenu2.add(jMenuItem2);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -723,6 +810,26 @@ public class Dndsheet extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    void setSkills(String  b){
+        if(skills[0] != null && skills[1] !=null) 
+            return;
+        if(skills[0]==null) skills[0]=b;
+        else skills[1] = b;
+        showSkills();
+    }
+    
+    void showSkills(){
+        for (int i = 0; i < 2; i++) {
+            System.out.println(skills[i]);
+        }
+    }
+    
+    void removeSkills(String  b){        
+        if (b.equals(skills[0])) skills[0]=null;
+        else if (b.equals(skills[1])) skills[1]=null;
+        showSkills();
+    }
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -730,6 +837,111 @@ public class Dndsheet extends javax.swing.JFrame {
     private void jRadioButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton19ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton19ActionPerformed
+
+    void updateSkills(JRadioButton b){
+        if(b.isSelected() && (skills[0] != null && skills[1] !=null) ){
+            b.setSelected(false);
+            return;
+        }
+        
+        if (b.isSelected()){
+            setSkills(b.getText());
+            skillcount++;
+        }
+        else{
+            removeSkills(b.getText());
+            skillcount--;
+        }
+    }
+    
+    private void btatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btatActionPerformed
+        updateSkills(btat);         
+    }//GEN-LAST:event_btatActionPerformed
+
+    private void btacrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btacrActionPerformed
+        // TODO add your handling code here:
+         updateSkills(btacr); 
+    }//GEN-LAST:event_btacrActionPerformed
+
+    private void btsohActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsohActionPerformed
+        // TODO add your handling code here:
+         updateSkills(btsoh); 
+    }//GEN-LAST:event_btsohActionPerformed
+
+    private void btstlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btstlActionPerformed
+        // TODO add your handling code here:
+        updateSkills(btstl); 
+    }//GEN-LAST:event_btstlActionPerformed
+
+    private void btarcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btarcActionPerformed
+        // TODO add your handling code here:
+        updateSkills(btarc); 
+    }//GEN-LAST:event_btarcActionPerformed
+
+    private void bthisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bthisActionPerformed
+        // TODO add your handling code here:
+        updateSkills(bthis); 
+    }//GEN-LAST:event_bthisActionPerformed
+
+    private void btinvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btinvActionPerformed
+        // TODO add your handling code here:
+        updateSkills(btinv); 
+    }//GEN-LAST:event_btinvActionPerformed
+
+    private void btnatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatActionPerformed
+        // TODO add your handling code here:
+        updateSkills(btat); 
+    }//GEN-LAST:event_btnatActionPerformed
+
+    private void btrelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btrelActionPerformed
+        // TODO add your handling code here:
+        updateSkills(btrel); 
+    }//GEN-LAST:event_btrelActionPerformed
+
+    private void btahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btahActionPerformed
+        // TODO add your handling code here:
+        updateSkills(btah); 
+    }//GEN-LAST:event_btahActionPerformed
+
+    private void btinsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btinsActionPerformed
+        // TODO add your handling code here:
+        updateSkills(btins); 
+    }//GEN-LAST:event_btinsActionPerformed
+
+    private void btmedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmedActionPerformed
+        // TODO add your handling code here:
+        updateSkills(btmed); 
+    }//GEN-LAST:event_btmedActionPerformed
+
+    private void btpercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btpercActionPerformed
+        // TODO add your handling code here:
+        updateSkills(btperc); 
+    }//GEN-LAST:event_btpercActionPerformed
+
+    private void btwisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btwisActionPerformed
+        // TODO add your handling code here:
+        updateSkills(btwis); 
+    }//GEN-LAST:event_btwisActionPerformed
+
+    private void btdecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btdecActionPerformed
+        // TODO add your handling code here:
+        updateSkills(btdec); 
+    }//GEN-LAST:event_btdecActionPerformed
+
+    private void btintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btintActionPerformed
+        // TODO add your handling code here:
+        updateSkills(btint); 
+    }//GEN-LAST:event_btintActionPerformed
+
+    private void btperfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btperfActionPerformed
+        // TODO add your handling code here:
+        updateSkills(btperf); 
+    }//GEN-LAST:event_btperfActionPerformed
+
+    private void btpersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btpersActionPerformed
+        // TODO add your handling code here:
+        updateSkills(btpers); 
+    }//GEN-LAST:event_btpersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -835,6 +1047,8 @@ public class Dndsheet extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
