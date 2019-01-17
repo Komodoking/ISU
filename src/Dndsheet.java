@@ -1,4 +1,5 @@
 
+import java.util.ListIterator;
 import javax.swing.JRadioButton;
 
 /*
@@ -12,6 +13,7 @@ import javax.swing.JRadioButton;
  * @author ajdy5510
  */
 public class Dndsheet extends javax.swing.JFrame {
+    ListIterator l= new ListIterator();
     int skillcount=0;
     String skills[] = {null,null};        
     public Dndsheet() {
@@ -114,7 +116,7 @@ public class Dndsheet extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        ListPorf = new javax.swing.JList<>();
         jScrollPane7 = new javax.swing.JScrollPane();
         jList3 = new javax.swing.JList<>();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -594,7 +596,7 @@ public class Dndsheet extends javax.swing.JFrame {
 
         jScrollPane5.setViewportView(jList1);
 
-        jScrollPane6.setViewportView(jList2);
+        jScrollPane6.setViewportView(ListPorf);
 
         jList3.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Name: \tBonus:\tDamage:" };
@@ -1101,6 +1103,10 @@ public class Dndsheet extends javax.swing.JFrame {
      Strength.setSelected(true);
      Constitiution.setSelected(true);
      Lblgold.setText("Gold coins: "+c.getmoney());
+        for (int i = 0; i < 10; i++) {
+            ListPorf.add(c.proficiencies(i));
+        }
+    
     }//GEN-LAST:event_mnfightActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
@@ -1160,6 +1166,7 @@ public class Dndsheet extends javax.swing.JFrame {
     private javax.swing.JRadioButton Dexterity;
     private javax.swing.JRadioButton Intelligence;
     private javax.swing.JLabel Lblgold;
+    private javax.swing.JList<String> ListPorf;
     private javax.swing.JRadioButton Strength;
     private javax.swing.JRadioButton Wisdom;
     private javax.swing.JRadioButton btacr;
@@ -1218,7 +1225,6 @@ public class Dndsheet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
     private javax.swing.JList<String> jList3;
     private javax.swing.JList<String> jList4;
     private javax.swing.JMenu jMenu1;

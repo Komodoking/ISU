@@ -52,10 +52,7 @@ public class Fighter extends Character {
     }
     }
 
-    
-    protected String[] abilities() {
-        
-    }
+ 
     public String FightingStyle(String style){
         if(style=="Archery"){
         return "Archery: You gain a +2 bonus to attack rolls you make with ranged weapons.";
@@ -77,10 +74,11 @@ public class Fighter extends Character {
      
     
 
-    @Override
-    protected String[] proficiencies() {
-      String proficiencies[]={"Armor: all armor","Weapons: All Simple and Martial Weapons", "Tools none"};
-      return proficiencies;
+    
+    protected void proficiencies() {
+        addProf("Armor: All armor, shields");
+        addProf("Weapons:All simple and martial weapons");
+        addProf("");
     }
 
     @Override
