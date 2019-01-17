@@ -1,8 +1,8 @@
 
 public abstract class Character {
- String name;
- String race;
-   int pb=2;
+ static String name;
+ 
+  static  int pb=2;
     static String backstory;
    public Character(String n){
        n=name;
@@ -12,12 +12,11 @@ public abstract class Character {
    abstract protected int acget(char t, int d);
    abstract protected String[] equipement(char a);
    abstract protected String[] abilities();
-   abstract protected void proficiencies(String );
-   abstract protected String[] attacks(int m,int p);
+   abstract protected String[] proficiencies();
+   abstract protected String attacks1(int m,int p, String attacks1);
+      abstract protected String attacks2(int m,int p, String attacks1);
    abstract protected int perception(int w);
-   abstract protected void magicuse();
    abstract protected int getmoney();
-   abstract protected String[] Svthrow();
    public final int getstrength(int e){
             StatGetter g= new StatGetter();
             return g.getStat(e);
@@ -97,6 +96,38 @@ public abstract class Character {
            getDex(2);
             
        }
+       if(race=="Half-Elf"){
+           getChar(2);
+           getInte(1);
+           getCon(0);
+           getWis(0);
+           getstrength(0);
+           getDex(1);
+       }
+        if(race=="Dwarf"){
+           getChar(0);
+           getInte(0);
+           getCon(0);
+           getWis(2);
+           getstrength(2);
+           getDex(0);
+       }
+        if(race=="Dragonborn"){
+        getChar(1);
+           getInte(0);
+           getCon(0);
+           getWis(0);
+           getstrength(2);
+           getDex(0);
+        }
+          if(race=="Tiefling"){
+        getChar(2);
+           getInte(1);
+           getCon(0);
+           getWis(0);
+           getstrength(0);
+           getDex(0);
+        }
        }
    
     

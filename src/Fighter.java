@@ -1,13 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author ajdy5510
- */
 public class Fighter extends Character {
 
     public Fighter(String n) {
@@ -23,10 +14,10 @@ public class Fighter extends Character {
   
     protected int acget(char t,int d) {
         if(t=='c'){
-            return 16+2;
+            return 16;
         }
         else{
-            return 11+d+2;
+            return 11+d;
         }
     }
 
@@ -38,11 +29,7 @@ public class Fighter extends Character {
     }
 
   
-    protected void magicuse() {
-        int splslot=0;
-        int splattack=0;
-        int spldc=0;
-    }
+    
 
  
     protected int getmoney() {
@@ -86,14 +73,96 @@ public class Fighter extends Character {
         
     }
 
-    protected String[] attacks(int m, int p) {
-     String Grtsword="greatsword";
+   
+     
+    
+
+    @Override
+    protected String[] proficiencies() {
+      String proficiencies[]={"Armor: all armor","Weapons: All Simple and Martial Weapons", "Tools none"};
+      return proficiencies;
+    }
+
+    @Override
+    protected String attacks1(int m, int p, String attacks1) {
+         String Grtsword="Greatsword";
      String Lngsword="Longsword";
      String Mrningstar="Morningstar";
      String pike="Pike";
-     
-     
+     String lCrossbow="Light Crossbow";
+     String Handaxe="Handaxe";
+     String Shortbow="Short bow";
+     String Battleaxe="Battleaxe";
+     int sum= m+p;
+     if(attacks1.equals(Grtsword)){
+         return Grtsword+"\t"+sum+"\t2d6 +"+m;
+     }
+      if(attacks1.equals(Lngsword)){
+         return Lngsword+"\t"+sum+"\t1d10 +"+m;
+     }
+       if(attacks1.equals(pike)){
+         return pike+"\t"+sum+"\t1d10 +"+m;
+     }
+        if(attacks1.equals(Mrningstar)){
+         return Mrningstar+"\t"+sum+"\t1d8 +"+m;
+     }
+        if(attacks1.equals(lCrossbow)){
+         return lCrossbow+"\t"+sum+"\t1d8 +"+m+" Range 80/320";
+     }
+         if(attacks1.equals(Handaxe)){
+         return Handaxe+"\t"+sum+"\t1d6 +"+m+" Range 20/60";
+     }
+          if(attacks1.equals(Shortbow)){
+         return Shortbow+"\t"+sum+"\t1d6 +"+m+" Range 80/320";
+     }
+           if(attacks1.equals(Battleaxe)){
+         return Battleaxe+"\t"+sum+"\t1d8 +"+m;
+     }
+           else
+               return"Invalid weapon";
     }
+
+    @Override
+    protected String attacks2(int m, int p, String attacks2) {
+           String Grtsword="Greatsword";
+     String Lngsword="Longsword";
+     String Mrningstar="Morningstar";
+     String pike="Pike";
+     String lCrossbow="Light Crossbow";
+     String Handaxe="Handaxe";
+     String Shortbow="Short bow";
+     String Battleaxe="Battleaxe";
+     int sum= m+p;
+     if(attacks2.equals(Grtsword)){
+         return Grtsword+"\t"+sum+"\t2d6 +"+m;
+     }
+      if(attacks2.equals(Lngsword)){
+         return Lngsword+"\t"+sum+"\t1d10 +"+m;
+     }
+       if(attacks2.equals(pike)){
+         return pike+"\t"+sum+"\t1d10 +"+m;
+     }
+        if(attacks2.equals(Mrningstar)){
+         return Mrningstar+"\t"+sum+"\t1d8 +"+m;
+     }
+        if(attacks2.equals(lCrossbow)){
+         return lCrossbow+"\t"+sum+"\t1d8 +"+m+" Range 80/320";
+     }
+         if(attacks2.equals(Handaxe)){
+         return Handaxe+"\t"+sum+"\t1d6 +"+m+" Range 20/60";
+     }
+          if(attacks2.equals(Shortbow)){
+         return Shortbow+"\t"+sum+"\t1d6 +"+m+" Range 80/320";
+     }
+           if(attacks2.equals(Battleaxe)){
+         return Battleaxe+"\t"+sum+"\t1d8 +"+m;
+     }
+           else
+               return"Invalid weapon";
+    }
+    }
+
+
 
  
     

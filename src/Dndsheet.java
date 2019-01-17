@@ -12,10 +12,6 @@ import javax.swing.JRadioButton;
  * @author ajdy5510
  */
 public class Dndsheet extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Dndsheet
-     */
     int skillcount=0;
     String skills[] = {null,null};        
     public Dndsheet() {
@@ -32,6 +28,9 @@ public class Dndsheet extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         txtlvl = new javax.swing.JLabel();
         lblcharstat = new javax.swing.JLabel();
         charmod = new javax.swing.JLabel();
@@ -48,16 +47,16 @@ public class Dndsheet extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        dwnstr = new javax.swing.JButton();
+        dwndex = new javax.swing.JButton();
+        dwncon = new javax.swing.JButton();
+        dwnint = new javax.swing.JButton();
+        dwnwis = new javax.swing.JButton();
+        upcha = new javax.swing.JButton();
+        upwis = new javax.swing.JButton();
+        upint = new javax.swing.JButton();
+        upcon = new javax.swing.JButton();
+        updex = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -82,12 +81,12 @@ public class Dndsheet extends javax.swing.JFrame {
         btperf = new javax.swing.JRadioButton();
         btpers = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
-        jRadioButton19 = new javax.swing.JRadioButton();
-        jRadioButton21 = new javax.swing.JRadioButton();
-        jRadioButton22 = new javax.swing.JRadioButton();
-        jRadioButton23 = new javax.swing.JRadioButton();
-        jRadioButton24 = new javax.swing.JRadioButton();
-        jRadioButton20 = new javax.swing.JRadioButton();
+        Strength = new javax.swing.JRadioButton();
+        Constitiution = new javax.swing.JRadioButton();
+        Intelligence = new javax.swing.JRadioButton();
+        Wisdom = new javax.swing.JRadioButton();
+        Charisma = new javax.swing.JRadioButton();
+        Dexterity = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -107,11 +106,11 @@ public class Dndsheet extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
+        Lblgold = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtname = new javax.swing.JTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -122,9 +121,25 @@ public class Dndsheet extends javax.swing.JFrame {
         jList4 = new javax.swing.JList<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mnfight = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        mncharacter = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
+
+        jMenu3.setText("File");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar2.add(jMenu4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -160,30 +175,75 @@ public class Dndsheet extends javax.swing.JFrame {
 
         jLabel3.setText("Allignement:");
 
-        jButton1.setText("Switch Down");
-
-        jButton2.setText("Switch Down");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        dwnstr.setText("Switch Down");
+        dwnstr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                dwnstrActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Switch Down");
+        dwndex.setText("Switch Down");
+        dwndex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dwndexActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Switch Down");
+        dwncon.setText("Switch Down");
+        dwncon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dwnconActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Switch Down");
+        dwnint.setText("Switch Down");
+        dwnint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dwnintActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Switch Up");
+        dwnwis.setText("Switch Down");
+        dwnwis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dwnwisActionPerformed(evt);
+            }
+        });
 
-        jButton7.setText("Switch Up");
+        upcha.setText("Switch Up");
+        upcha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upchaActionPerformed(evt);
+            }
+        });
 
-        jButton8.setText("Switch Up");
+        upwis.setText("Switch Up");
+        upwis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upwisActionPerformed(evt);
+            }
+        });
 
-        jButton9.setText("Switch Up");
+        upint.setText("Switch Up");
+        upint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upintActionPerformed(evt);
+            }
+        });
 
-        jButton10.setText("Switch Up");
+        upcon.setText("Switch Up");
+        upcon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upconActionPerformed(evt);
+            }
+        });
+
+        updex.setText("Switch Up");
+        updex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updexActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Character Name:");
 
@@ -358,7 +418,7 @@ public class Dndsheet extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(25, Short.MAX_VALUE)
                 .addComponent(btat)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btacr)
@@ -399,60 +459,59 @@ public class Dndsheet extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jRadioButton19.setText("Strength");
-        jRadioButton19.addActionListener(new java.awt.event.ActionListener() {
+        Strength.setText("Strength");
+        Strength.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton19ActionPerformed(evt);
+                StrengthActionPerformed(evt);
             }
         });
 
-        jRadioButton21.setText("Constitution");
+        Constitiution.setText("Constitution");
 
-        jRadioButton22.setText("Intelligence");
+        Intelligence.setText("Intelligence");
 
-        jRadioButton23.setText("Wisdom");
+        Wisdom.setText("Wisdom");
 
-        jRadioButton24.setText("Charisma");
+        Charisma.setText("Charisma");
 
-        jRadioButton20.setText("Dexterity");
+        Dexterity.setText("Dexterity");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jRadioButton21)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(Constitiution)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Intelligence))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jRadioButton19)
+                        .addComponent(Strength)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton22)
-                            .addComponent(jRadioButton20)))
+                        .addComponent(Dexterity)
+                        .addGap(16, 16, 16))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jRadioButton23)
+                        .addComponent(Wisdom)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton24)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(Charisma)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton19)
-                    .addComponent(jRadioButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Strength)
+                    .addComponent(Dexterity, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton21)
-                    .addComponent(jRadioButton22))
+                    .addComponent(Constitiution)
+                    .addComponent(Intelligence))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton23)
-                    .addComponent(jRadioButton24))
+                    .addComponent(Wisdom)
+                    .addComponent(Charisma))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -494,7 +553,7 @@ public class Dndsheet extends javax.swing.JFrame {
 
         jLabel26.setText("Electrum Coins:");
 
-        jLabel27.setText("Gold Coins:");
+        Lblgold.setText("Gold Coins:");
 
         jLabel28.setText("Platinum Coins:");
 
@@ -508,7 +567,7 @@ public class Dndsheet extends javax.swing.JFrame {
                     .addComponent(jLabel24)
                     .addComponent(jLabel25)
                     .addComponent(jLabel26)
-                    .addComponent(jLabel27)
+                    .addComponent(Lblgold)
                     .addComponent(jLabel28))
                 .addGap(0, 26, Short.MAX_VALUE))
         );
@@ -523,7 +582,7 @@ public class Dndsheet extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel27)
+                .addComponent(Lblgold)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel28)
                 .addContainerGap(29, Short.MAX_VALUE))
@@ -548,17 +607,73 @@ public class Dndsheet extends javax.swing.JFrame {
 
         jMenu1.setText("Class");
 
-        jMenuItem1.setText("Fighter");
-        jMenu1.add(jMenuItem1);
+        mnfight.setText("Fighter");
+        mnfight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnfightActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnfight);
 
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Race");
 
-        jMenuItem2.setText("jMenuItem2");
+        jMenuItem2.setText("Human");
         jMenu2.add(jMenuItem2);
 
+        jMenuItem3.setText("Elf");
+        jMenu2.add(jMenuItem3);
+
+        jMenuItem4.setText("Half-Elf");
+        jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setText("Dwarf");
+        jMenu2.add(jMenuItem5);
+
+        jMenuItem6.setText("Dragonborn");
+        jMenu2.add(jMenuItem6);
+
+        jMenuItem7.setText("Tiefling");
+        jMenu2.add(jMenuItem7);
+
         jMenuBar1.add(jMenu2);
+
+        mncharacter.setText("Character");
+
+        jMenuItem8.setText("Set Gender");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        mncharacter.add(jMenuItem8);
+
+        jMenuItem9.setText("Set Allingement");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        mncharacter.add(jMenuItem9);
+
+        jMenuItem10.setText("Set Height");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        mncharacter.add(jMenuItem10);
+
+        jMenuItem11.setText("Set Weight");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        mncharacter.add(jMenuItem11);
+
+        jMenuBar1.add(mncharacter);
 
         setJMenuBar(jMenuBar1);
 
@@ -589,25 +704,25 @@ public class Dndsheet extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(dwncon, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(dwndex, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(updex, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(upcon, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(dwnstr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblwisstat, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(wismod))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(dwnwis, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(upwis, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblcharstat, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(upcha, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(charmod)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9)
                             .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -620,18 +735,18 @@ public class Dndsheet extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
-                                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(dwnint, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(upint, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel6)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(24, 24, 24)
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(172, 172, 172)
+                        .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel19)
                             .addGroup(layout.createSequentialGroup()
@@ -668,17 +783,18 @@ public class Dndsheet extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(txtlvl))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel14)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel15))
+                                .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtlvl)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel1))))
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel14)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel15))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel8)))
@@ -709,97 +825,98 @@ public class Dndsheet extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(126, 126, 126)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jButton9)
-                                    .addComponent(lblconstat))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(132, 132, 132)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(upcon)
+                                            .addComponent(lblconstat))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(dwncon)
+                                            .addComponent(conmod))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(lblintstat)
+                                            .addComponent(upint)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lblcharstat1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(5, 5, 5)
+                                                .addComponent(charmod1))
+                                            .addComponent(dwnstr))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(lbldexstat)
+                                            .addComponent(updex))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(dexstat)
+                                            .addComponent(dwndex))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton3)
-                                    .addComponent(conmod))
+                                    .addComponent(intmod)
+                                    .addComponent(dwnint))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblintstat)
-                                    .addComponent(jButton8)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblwisstat)
+                                    .addComponent(upwis))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dwnwis)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblcharstat1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(5, 5, 5)
-                                        .addComponent(charmod1))
-                                    .addComponent(jButton1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lbldexstat)
-                                    .addComponent(jButton10))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(dexstat)
-                                    .addComponent(jButton2))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(intmod)
-                            .addComponent(jButton4))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblwisstat)
-                            .addComponent(jButton7))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton5)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(wismod)
+                                        .addComponent(wismod)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(lblcharstat)
+                                            .addComponent(upcha))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(charmod)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblcharstat)
-                                    .addComponent(jButton6))
+                                .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(charmod)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel9)
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(55, 55, 55)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel2)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtlvl)
                                 .addComponent(jLabel1))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(22, 22, 22))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel11)
-                                        .addComponent(jLabel12)
-                                        .addComponent(jLabel16))
-                                    .addGap(36, 36, 36)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel17)
-                                        .addComponent(jLabel10)
-                                        .addComponent(jLabel18))
-                                    .addGap(40, 40, 40)
-                                    .addComponent(jLabel19)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel29)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel12)
+                                    .addComponent(jLabel16))
+                                .addGap(36, 36, 36)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel10)
+                                    .addComponent(jLabel18))
+                                .addGap(40, 40, 40)
+                                .addComponent(jLabel19)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel29)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel30)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -830,13 +947,13 @@ public class Dndsheet extends javax.swing.JFrame {
         showSkills();
     }
     
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void dwndexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwndexActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_dwndexActionPerformed
 
-    private void jRadioButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton19ActionPerformed
+    private void StrengthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StrengthActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton19ActionPerformed
+    }//GEN-LAST:event_StrengthActionPerformed
 
     void updateSkills(JRadioButton b){
         if(b.isSelected() && (skills[0] != null && skills[1] !=null) ){
@@ -943,6 +1060,65 @@ public class Dndsheet extends javax.swing.JFrame {
         updateSkills(btpers); 
     }//GEN-LAST:event_btpersActionPerformed
 
+    private void dwnstrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwnstrActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dwnstrActionPerformed
+
+    private void updexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updexActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updexActionPerformed
+
+    private void upconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upconActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_upconActionPerformed
+
+    private void dwnconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwnconActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dwnconActionPerformed
+
+    private void upintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upintActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_upintActionPerformed
+
+    private void dwnintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwnintActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dwnintActionPerformed
+
+    private void upwisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upwisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_upwisActionPerformed
+
+    private void dwnwisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwnwisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dwnwisActionPerformed
+
+    private void upchaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upchaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_upchaActionPerformed
+
+    private void mnfightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnfightActionPerformed
+     Character c= new Fighter(txtname.getText());
+     Strength.setSelected(true);
+     Constitiution.setSelected(true);
+     Lblgold.setText("Gold coins: "+c.getmoney());
+    }//GEN-LAST:event_mnfightActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -979,6 +1155,13 @@ public class Dndsheet extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton Charisma;
+    private javax.swing.JRadioButton Constitiution;
+    private javax.swing.JRadioButton Dexterity;
+    private javax.swing.JRadioButton Intelligence;
+    private javax.swing.JLabel Lblgold;
+    private javax.swing.JRadioButton Strength;
+    private javax.swing.JRadioButton Wisdom;
     private javax.swing.JRadioButton btacr;
     private javax.swing.JRadioButton btah;
     private javax.swing.JRadioButton btarc;
@@ -1002,17 +1185,12 @@ public class Dndsheet extends javax.swing.JFrame {
     private javax.swing.JLabel charmod1;
     private javax.swing.JLabel conmod;
     private javax.swing.JLabel dexstat;
+    private javax.swing.JButton dwncon;
+    private javax.swing.JButton dwndex;
+    private javax.swing.JButton dwnint;
+    private javax.swing.JButton dwnstr;
+    private javax.swing.JButton dwnwis;
     private javax.swing.JLabel intmod;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1029,7 +1207,6 @@ public class Dndsheet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
@@ -1046,32 +1223,44 @@ public class Dndsheet extends javax.swing.JFrame {
     private javax.swing.JList<String> jList4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JRadioButton jRadioButton19;
-    private javax.swing.JRadioButton jRadioButton20;
-    private javax.swing.JRadioButton jRadioButton21;
-    private javax.swing.JRadioButton jRadioButton22;
-    private javax.swing.JRadioButton jRadioButton23;
-    private javax.swing.JRadioButton jRadioButton24;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblcharstat;
     private javax.swing.JLabel lblcharstat1;
     private javax.swing.JLabel lblconstat;
     private javax.swing.JLabel lbldexstat;
     private javax.swing.JLabel lblintstat;
     private javax.swing.JLabel lblwisstat;
+    private javax.swing.JMenu mncharacter;
+    private javax.swing.JMenuItem mnfight;
     private javax.swing.JLabel txtlvl;
+    private javax.swing.JTextField txtname;
+    private javax.swing.JButton upcha;
+    private javax.swing.JButton upcon;
+    private javax.swing.JButton updex;
+    private javax.swing.JButton upint;
+    private javax.swing.JButton upwis;
     private javax.swing.JLabel wismod;
     // End of variables declaration//GEN-END:variables
 }
