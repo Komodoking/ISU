@@ -13,9 +13,10 @@ import javax.swing.JRadioButton;
  * @author ajdy5510
  */
 public class Dndsheet extends javax.swing.JFrame {
-    ListIterator l= new ListIterator();
+
     int skillcount=0;
-    String skills[] = {null,null};        
+    String skills[] = {null,null};
+String race="";
     public Dndsheet() {
         initComponents();
     }
@@ -118,19 +119,19 @@ public class Dndsheet extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         ListPorf = new javax.swing.JList<>();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<>();
+        lstattacks = new javax.swing.JList<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList4 = new javax.swing.JList<>();
+        lstequipe = new javax.swing.JList<>();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnfight = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        mnhuman = new javax.swing.JMenuItem();
+        mnelf = new javax.swing.JMenuItem();
+        mnhflelf = new javax.swing.JMenuItem();
+        mndwarf = new javax.swing.JMenuItem();
+        mndrago = new javax.swing.JMenuItem();
+        mntief = new javax.swing.JMenuItem();
         mncharacter = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
@@ -149,27 +150,27 @@ public class Dndsheet extends javax.swing.JFrame {
 
         lblcharstat.setText("charisma");
 
-        charmod.setText("jLabel1");
+        charmod.setText("+0");
 
         lblcharstat1.setText("Strength");
 
-        charmod1.setText("jLabel1");
+        charmod1.setText("+0");
 
         lbldexstat.setText("Dexterity");
 
-        dexstat.setText("jLabel1");
+        dexstat.setText("+0");
 
         lblconstat.setText("Constitution");
 
-        conmod.setText("jLabel1");
+        conmod.setText("+0");
 
         lblintstat.setText("Intelligence");
 
-        intmod.setText("jLabel1");
+        intmod.setText("+0");
 
         lblwisstat.setText("wisdom");
 
-        wismod.setText("jLabel1");
+        wismod.setText("+0");
 
         jLabel1.setText("Experience points:0");
 
@@ -598,14 +599,14 @@ public class Dndsheet extends javax.swing.JFrame {
 
         jScrollPane6.setViewportView(ListPorf);
 
-        jList3.setModel(new javax.swing.AbstractListModel<String>() {
+        lstattacks.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Name: \tBonus:\tDamage:" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane7.setViewportView(jList3);
+        jScrollPane7.setViewportView(lstattacks);
 
-        jScrollPane1.setViewportView(jList4);
+        jScrollPane1.setViewportView(lstequipe);
 
         jMenu1.setText("Class");
 
@@ -621,23 +622,28 @@ public class Dndsheet extends javax.swing.JFrame {
 
         jMenu2.setText("Race");
 
-        jMenuItem2.setText("Human");
-        jMenu2.add(jMenuItem2);
+        mnhuman.setText("Human");
+        mnhuman.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnhumanActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mnhuman);
 
-        jMenuItem3.setText("Elf");
-        jMenu2.add(jMenuItem3);
+        mnelf.setText("Elf");
+        jMenu2.add(mnelf);
 
-        jMenuItem4.setText("Half-Elf");
-        jMenu2.add(jMenuItem4);
+        mnhflelf.setText("Half-Elf");
+        jMenu2.add(mnhflelf);
 
-        jMenuItem5.setText("Dwarf");
-        jMenu2.add(jMenuItem5);
+        mndwarf.setText("Dwarf");
+        jMenu2.add(mndwarf);
 
-        jMenuItem6.setText("Dragonborn");
-        jMenu2.add(jMenuItem6);
+        mndrago.setText("Dragonborn");
+        jMenu2.add(mndrago);
 
-        jMenuItem7.setText("Tiefling");
-        jMenu2.add(jMenuItem7);
+        mntief.setText("Tiefling");
+        jMenu2.add(mntief);
 
         jMenuBar1.add(jMenu2);
 
@@ -692,17 +698,14 @@ public class Dndsheet extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lbldexstat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addGap(6, 6, 6)
-                                                .addComponent(dexstat))
-                                            .addComponent(lblconstat, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addComponent(lbldexstat, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblconstat)
                                         .addComponent(conmod, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
                                         .addComponent(charmod1))
-                                    .addComponent(lblcharstat1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblcharstat1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(dexstat))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -827,35 +830,32 @@ public class Dndsheet extends javax.swing.JFrame {
                         .addComponent(jLabel8)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblcharstat1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(charmod1))
+                                    .addComponent(dwnstr))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lbldexstat)
+                                    .addComponent(updex))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(132, 132, 132)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(upcon)
-                                            .addComponent(lblconstat))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(dwncon)
-                                            .addComponent(conmod))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(lblintstat)
-                                            .addComponent(upint)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lblcharstat1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(5, 5, 5)
-                                                .addComponent(charmod1))
-                                            .addComponent(dwnstr))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(lbldexstat)
-                                            .addComponent(updex))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(dexstat)
-                                            .addComponent(dwndex))))
+                                    .addComponent(dwndex)
+                                    .addComponent(dexstat))
+                                .addGap(25, 25, 25)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(upcon)
+                                    .addComponent(lblconstat))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dwncon)
+                                    .addComponent(conmod))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblintstat)
+                                    .addComponent(upint))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(intmod)
@@ -1095,17 +1095,24 @@ public class Dndsheet extends javax.swing.JFrame {
     }//GEN-LAST:event_dwnwisActionPerformed
 
     private void upchaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upchaActionPerformed
-        // TODO add your handling code here:
+    lblwisstat.setText("");
+        lblwisstat.setText(lblcharstat.getText());
+        lblcharstat.setText("");
+    lblcharstat.setText(lblwisstat.getText());
+    charmod.setText("");
+   charmod.setText(wismod.getText());
+   wismod.setText("");
+   wismod.setText(charmod.getText());
+   
     }//GEN-LAST:event_upchaActionPerformed
 
     private void mnfightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnfightActionPerformed
-     Character c= new Fighter(txtname.getText());
+     Character c= new Fighter(txtname.getText(),race);
      Strength.setSelected(true);
      Constitiution.setSelected(true);
      Lblgold.setText("Gold coins: "+c.getmoney());
-        for (int i = 0; i < 10; i++) {
-            ListPorf.add(c.proficiencies(i));
-        }
+     
+ 
     
     }//GEN-LAST:event_mnfightActionPerformed
 
@@ -1124,6 +1131,10 @@ public class Dndsheet extends javax.swing.JFrame {
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void mnhumanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnhumanActionPerformed
+        
+    }//GEN-LAST:event_mnhumanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1225,8 +1236,6 @@ public class Dndsheet extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList3;
-    private javax.swing.JList<String> jList4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -1235,12 +1244,6 @@ public class Dndsheet extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
@@ -1258,8 +1261,16 @@ public class Dndsheet extends javax.swing.JFrame {
     private javax.swing.JLabel lbldexstat;
     private javax.swing.JLabel lblintstat;
     private javax.swing.JLabel lblwisstat;
+    private javax.swing.JList<String> lstattacks;
+    private javax.swing.JList<String> lstequipe;
     private javax.swing.JMenu mncharacter;
+    private javax.swing.JMenuItem mndrago;
+    private javax.swing.JMenuItem mndwarf;
+    private javax.swing.JMenuItem mnelf;
     private javax.swing.JMenuItem mnfight;
+    private javax.swing.JMenuItem mnhflelf;
+    private javax.swing.JMenuItem mnhuman;
+    private javax.swing.JMenuItem mntief;
     private javax.swing.JLabel txtlvl;
     private javax.swing.JTextField txtname;
     private javax.swing.JButton upcha;

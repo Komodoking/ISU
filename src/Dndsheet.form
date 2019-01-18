@@ -44,32 +44,35 @@
             <Property name="text" type="java.lang.String" value="Race"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="mnhuman">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Human"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mnhumanActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+            <MenuItem class="javax.swing.JMenuItem" name="mnelf">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Elf"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="mnhflelf">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Half-Elf"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+            <MenuItem class="javax.swing.JMenuItem" name="mndwarf">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Dwarf"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+            <MenuItem class="javax.swing.JMenuItem" name="mndrago">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Dragonborn"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+            <MenuItem class="javax.swing.JMenuItem" name="mntief">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Tiefling"/>
               </Properties>
@@ -150,14 +153,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                          <Component id="lbldexstat" alignment="1" min="-2" pref="65" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                              <Component id="dexstat" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="lblconstat" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="lbldexstat" alignment="1" min="-2" pref="65" max="-2" attributes="0"/>
+                                      <Component id="lblconstat" alignment="1" min="-2" max="-2" attributes="0"/>
                                       <Component id="conmod" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -165,6 +162,7 @@
                                       <Component id="charmod1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="lblcharstat1" min="-2" pref="65" max="-2" attributes="0"/>
+                                  <Component id="dexstat" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -331,44 +329,38 @@
                       <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblcharstat1" min="-2" pref="30" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                      <Component id="charmod1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="dwnstr" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lbldexstat" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="updex" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="upcon" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblconstat" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="dwncon" min="-2" max="-2" attributes="0"/>
-                                          <Component id="conmod" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lblintstat" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="upint" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="lblcharstat1" min="-2" pref="30" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                              <Component id="charmod1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="dwnstr" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="lbldexstat" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="updex" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="dexstat" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="dwndex" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="dwndex" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dexstat" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="upcon" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblconstat" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="dwncon" min="-2" max="-2" attributes="0"/>
+                                  <Component id="conmod" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblintstat" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="upint" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -475,7 +467,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="charmod">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="+0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblcharstat1">
@@ -485,7 +477,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="charmod1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="+0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbldexstat">
@@ -495,7 +487,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="dexstat">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="+0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblconstat">
@@ -505,7 +497,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="conmod">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="+0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblintstat">
@@ -515,7 +507,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="intmod">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="+0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lblwisstat">
@@ -525,7 +517,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="wismod">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="+0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
@@ -1186,7 +1178,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="jList3">
+        <Component class="javax.swing.JList" name="lstattacks">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
               <StringArray count="1">
@@ -1207,7 +1199,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="jList4">
+        <Component class="javax.swing.JList" name="lstequipe">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
               <StringArray count="0"/>

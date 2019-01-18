@@ -1,10 +1,12 @@
 
 public class Fighter extends Character {
 
-    public Fighter(String n) {
-        super(n);
+    public Fighter(String n, String r) {
+        super(n, r);
     }
 
+   
+   
 
     protected int hpget(int c) {
  int hp=10;
@@ -164,4 +166,4 @@ public class Fighter extends Character {
 
  
     
-}
+
