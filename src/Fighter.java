@@ -8,26 +8,27 @@ public class Fighter extends Character {
    
    
 
-    protected int hpget(int c) {
+    protected void hpget(int c) {
  int hp=10;
- return 10+c;
+ hp= 10+c;
     }
 
   
-    protected int acget(char t,int d) {
+    protected void acget(char t,int d) {
         if(t=='c'){
-            return 16;
+            ac= 16;
         }
         else{
-            return 11+d;
+            ac= 11+d;
         }
     }
 
  
  
-    protected int perception(int w) {
+    protected void perception(int w) {
         int perc=10;
-        return perc+w;
+       w=modgetter(getWis());
+       perc=10+w;
     }
 
   
@@ -55,20 +56,22 @@ public class Fighter extends Character {
     }
 
  
-    public String FightingStyle(String style){
+    public void FightingStyle(String style){
         if(style=="Archery"){
-        return "Archery: You gain a +2 bonus to attack rolls you make with ranged weapons.";
+            addAbility("Archery: You gain a +2 bonus to attack rolls you make with ranged weapons.");
         
         }
         else if(style=="Defence"){
-        return "Defense: While you are wearing armor, you gain a +1 bonus to AC.";
+            addAbility("Defense: While you are wearing armor, you gain a +1 bonus to AC.");
+       ac++;
         }
         else if(style=="Two weapon fighting"){
-            return"Two-Weapon Fighting: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.";
+            addAbility("Two-Weapon Fighting: When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.");
+            
             
         }
         else
-            return"Great Weapon Fighting: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.";
+            addAbility("Great Weapon Fighting: When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.");
         
     }
 

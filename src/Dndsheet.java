@@ -1,5 +1,7 @@
 
 import java.util.ListIterator;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
 import javax.swing.JRadioButton;
 
 /*
@@ -13,12 +15,15 @@ import javax.swing.JRadioButton;
  * @author ajdy5510
  */
 public class Dndsheet extends javax.swing.JFrame {
-
+    DefaultListModel ab= new DefaultListModel();
+    DefaultListModel listporf = new DefaultListModel();
     int skillcount=0;
     String skills[] = {null,null};
+    Character c;
 String race="";
     public Dndsheet() {
         initComponents();
+        ListPorf.setModel(listporf);
     }
 
     /**
@@ -37,8 +42,8 @@ String race="";
         txtlvl = new javax.swing.JLabel();
         lblcharstat = new javax.swing.JLabel();
         charmod = new javax.swing.JLabel();
-        lblcharstat1 = new javax.swing.JLabel();
-        charmod1 = new javax.swing.JLabel();
+        lblstrstat = new javax.swing.JLabel();
+        lblstrmod = new javax.swing.JLabel();
         lbldexstat = new javax.swing.JLabel();
         dexstat = new javax.swing.JLabel();
         lblconstat = new javax.swing.JLabel();
@@ -62,7 +67,7 @@ String race="";
         updex = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblperc = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btat = new javax.swing.JRadioButton();
@@ -83,6 +88,7 @@ String race="";
         btint = new javax.swing.JRadioButton();
         btperf = new javax.swing.JRadioButton();
         btpers = new javax.swing.JRadioButton();
+        btnsetSkills = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Strength = new javax.swing.JRadioButton();
         Constitiution = new javax.swing.JRadioButton();
@@ -92,15 +98,15 @@ String race="";
         Dexterity = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        lblmaxhp = new javax.swing.JLabel();
+        lblac = new javax.swing.JLabel();
+        lblinit = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        lblspd = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -132,11 +138,6 @@ String race="";
         mndwarf = new javax.swing.JMenuItem();
         mndrago = new javax.swing.JMenuItem();
         mntief = new javax.swing.JMenuItem();
-        mncharacter = new javax.swing.JMenu();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
 
         jMenu3.setText("File");
         jMenuBar2.add(jMenu3);
@@ -152,9 +153,9 @@ String race="";
 
         charmod.setText("+0");
 
-        lblcharstat1.setText("Strength");
+        lblstrstat.setText("Strength");
 
-        charmod1.setText("+0");
+        lblstrmod.setText("+0");
 
         lbldexstat.setText("Dexterity");
 
@@ -252,7 +253,7 @@ String race="";
 
         jLabel5.setText("Gender");
 
-        jLabel7.setText("Passive Wisdom(Perception)");
+        lblperc.setText("Passive Wisdom(Perception)");
 
         jLabel8.setText("Proficiency bonus:2");
 
@@ -384,6 +385,13 @@ String race="";
             }
         });
 
+        btnsetSkills.setText("Set Skills");
+        btnsetSkills.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsetSkillsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -415,7 +423,11 @@ String race="";
                             .addComponent(btsoh))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btdec)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btdec)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(btnsetSkills)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -457,7 +469,9 @@ String race="";
                 .addComponent(btperf)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btpers)
-                .addGap(104, 104, 104))
+                .addGap(18, 18, 18)
+                .addComponent(btnsetSkills)
+                .addGap(54, 54, 54))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -522,11 +536,11 @@ String race="";
 
         jLabel6.setText("Saving Throws");
 
-        jLabel10.setText("Maximum Hp:");
+        lblmaxhp.setText("Maximum Hp:");
 
-        jLabel11.setText("Armor Class:");
+        lblac.setText("Armor Class:");
 
-        jLabel12.setText("Initiatve:");
+        lblinit.setText("Initiatve:");
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -538,7 +552,7 @@ String race="";
 
         jLabel15.setText("Weight:");
 
-        jLabel16.setText("Speed:");
+        lblspd.setText("Speed:");
 
         jLabel17.setText("Current Hp:");
 
@@ -647,42 +661,6 @@ String race="";
 
         jMenuBar1.add(jMenu2);
 
-        mncharacter.setText("Character");
-
-        jMenuItem8.setText("Set Gender");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
-            }
-        });
-        mncharacter.add(jMenuItem8);
-
-        jMenuItem9.setText("Set Allingement");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        mncharacter.add(jMenuItem9);
-
-        jMenuItem10.setText("Set Height");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
-            }
-        });
-        mncharacter.add(jMenuItem10);
-
-        jMenuItem11.setText("Set Weight");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem11ActionPerformed(evt);
-            }
-        });
-        mncharacter.add(jMenuItem11);
-
-        jMenuBar1.add(mncharacter);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -691,7 +669,7 @@ String race="";
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
+                    .addComponent(lblperc)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -703,8 +681,8 @@ String race="";
                                         .addComponent(conmod, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(6, 6, 6)
-                                        .addComponent(charmod1))
-                                    .addComponent(lblcharstat1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblstrmod))
+                                    .addComponent(lblstrstat, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(dexstat))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -763,15 +741,15 @@ String race="";
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel29)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblac, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblinit, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblspd, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel17)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel10)
+                                .addComponent(lblmaxhp)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel18)))))
                 .addGap(18, 18, Short.MAX_VALUE)
@@ -832,9 +810,9 @@ String race="";
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblcharstat1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblstrstat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(5, 5, 5)
-                                        .addComponent(charmod1))
+                                        .addComponent(lblstrmod))
                                     .addComponent(dwnstr))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -876,7 +854,7 @@ String race="";
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(charmod)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel7)
+                                .addComponent(lblperc)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel9)
                                 .addGap(18, 18, 18)
@@ -900,13 +878,13 @@ String race="";
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel16))
+                                    .addComponent(lblac)
+                                    .addComponent(lblinit)
+                                    .addComponent(lblspd))
                                 .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel17)
-                                    .addComponent(jLabel10)
+                                    .addComponent(lblmaxhp)
                                     .addComponent(jLabel18))
                                 .addGap(40, 40, 40)
                                 .addComponent(jLabel19)
@@ -923,7 +901,7 @@ String race="";
                                 .addComponent(jLabel30)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 719, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -971,6 +949,7 @@ String race="";
             removeSkills(b.getText());
             skillcount--;
         }
+        
     }
     
     private void btatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btatActionPerformed
@@ -1055,11 +1034,13 @@ String race="";
     private void btperfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btperfActionPerformed
         // TODO add your handling code here:
         updateSkills(btperf); 
+         c.addSkill("Performance");
     }//GEN-LAST:event_btperfActionPerformed
 
     private void btpersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btpersActionPerformed
-        // TODO add your handling code here:
+
         updateSkills(btpers); 
+        c.addSkill("Persuasion");
     }//GEN-LAST:event_btpersActionPerformed
 
     private void dwnstrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwnstrActionPerformed
@@ -1107,34 +1088,39 @@ String race="";
     }//GEN-LAST:event_upchaActionPerformed
 
     private void mnfightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnfightActionPerformed
-     Character c= new Fighter(txtname.getText(),race);
+     c= new Fighter(txtname.getText(),race);
      Strength.setSelected(true);
      Constitiution.setSelected(true);
      Lblgold.setText("Gold coins: "+c.getmoney());
-     
- 
+    lbldexstat.setText("Strength "+c.getDex());
+    dexstat.setText(""+c.modgetter(c.getDex()));
+        lblconstat.setText("Strength "+c.getCon());
+    conmod.setText(""+c.modgetter(c.getCon()));
+        lblintstat.setText("Strength "+c.getIint());
+    intmod.setText(""+c.modgetter(c.getIint()));
+        lblwisstat.setText("Strength "+c.getWis());
+    wismod.setText(""+c.modgetter(c.getWis()));
+        lblcharstat.setText("Strength "+c.getCha());
+    charmod.setText(""+c.modgetter(c.getCha()));
+    lblmaxhp.setText(""+c.getHp());
+    lblinit.setText(""+c.modgetter(c.getDex()));
+    lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
+    
+        for (String p:c.getProf()) {
+             listporf.addElement(p);
+        }
+      
     
     }//GEN-LAST:event_mnfightActionPerformed
-
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
-
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
-
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
-
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void mnhumanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnhumanActionPerformed
         
     }//GEN-LAST:event_mnhumanActionPerformed
+
+    private void btnsetSkillsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsetSkillsActionPerformed
+      c.getSkills();
+      
+    }//GEN-LAST:event_btnsetSkillsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1191,6 +1177,7 @@ String race="";
     private javax.swing.JRadioButton btinv;
     private javax.swing.JRadioButton btmed;
     private javax.swing.JRadioButton btnat;
+    private javax.swing.JButton btnsetSkills;
     private javax.swing.JRadioButton btperc;
     private javax.swing.JRadioButton btperf;
     private javax.swing.JRadioButton btpers;
@@ -1200,7 +1187,6 @@ String race="";
     private javax.swing.JRadioButton btwis;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel charmod;
-    private javax.swing.JLabel charmod1;
     private javax.swing.JLabel conmod;
     private javax.swing.JLabel dexstat;
     private javax.swing.JButton dwncon;
@@ -1210,13 +1196,9 @@ String race="";
     private javax.swing.JButton dwnwis;
     private javax.swing.JLabel intmod;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -1232,7 +1214,6 @@ String race="";
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
@@ -1242,10 +1223,6 @@ String race="";
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -1255,15 +1232,20 @@ String race="";
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JLabel lblac;
     private javax.swing.JLabel lblcharstat;
-    private javax.swing.JLabel lblcharstat1;
     private javax.swing.JLabel lblconstat;
     private javax.swing.JLabel lbldexstat;
+    private javax.swing.JLabel lblinit;
     private javax.swing.JLabel lblintstat;
+    private javax.swing.JLabel lblmaxhp;
+    private javax.swing.JLabel lblperc;
+    private javax.swing.JLabel lblspd;
+    private javax.swing.JLabel lblstrmod;
+    private javax.swing.JLabel lblstrstat;
     private javax.swing.JLabel lblwisstat;
     private javax.swing.JList<String> lstattacks;
     private javax.swing.JList<String> lstequipe;
-    private javax.swing.JMenu mncharacter;
     private javax.swing.JMenuItem mndrago;
     private javax.swing.JMenuItem mndwarf;
     private javax.swing.JMenuItem mnelf;

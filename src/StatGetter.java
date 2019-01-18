@@ -22,10 +22,10 @@ int stat;
   }
   return minValue;
 }
-    public int getStat(int racemod){
+    public int getStat(){
         int g=getMinValue(dice);
          int sum= IntStream.of(dice).sum();
-         return sum-g+racemod;
+         return sum-g;
          
     }
 }
