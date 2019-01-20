@@ -8,27 +8,27 @@ public class Fighter extends Character {
    
    
 
-    protected void hpget(int c) {
+    protected int hpget(int c) {
  int hp=10;
- hp= 10+c;
+ return hp = 10+c;
     }
 
   
-    protected void acget(char t,int d) {
-        if(t=='c'){
-            ac= 16;
+    protected int acget(char t,int d) {
+        if(t=='a'){
+            return ac= 16+2;
         }
         else{
-            ac= 11+d;
+            return ac= 11+d;
         }
     }
 
  
  
-    protected void perception(int w) {
+    protected int perception(int w) {
         int perc=10;
        w=modgetter(getWis());
-       perc=10+w;
+       return perc=10+w;
     }
 
   
@@ -41,17 +41,22 @@ public class Fighter extends Character {
     }
 
  
-    protected String[] equipement(char a) {
+    protected void equipement(char a) {
      if( a=='a'){
         String dpack[]={"Backpack","Crowbar","Hammer","Piton x 10","Torch x 10","10 days of rations", " Waterskin"," 50 ft rope"};
-        
-              return dpack;
+         for (int i = 0; i < dpack.length; i++) {
+             addEquip(dpack[i]);
+             addEquip("Shield");
+         }
+         
          
        
     }
      else{
          String epack[]={"Backpack","Bedroll","Mess kit","Torch x 10","10 days of rations", " Waterskin"," 50 ft rope"};
-     return epack;
+         for (int i = 0; i < epack.length; i++) {
+             addEquip(epack[i]);
+         }
     }
     }
 
@@ -86,82 +91,38 @@ public class Fighter extends Character {
         addProf("");
     }
 
-    @Override
-    protected String attacks1(int m, int p, String attacks1) {
-         String Grtsword="Greatsword";
-     String Lngsword="Longsword";
+
+    
+    protected void attacks(int m, int p, char a) {
+           String Grtsword="Greatsword";
+
+     String Lngbow="Longbow";
      String Mrningstar="Morningstar";
      String pike="Pike";
      String lCrossbow="Light Crossbow";
      String Handaxe="Handaxe";
-     String Shortbow="Short bow";
-     String Battleaxe="Battleaxe";
+    
      int sum= m+p;
-     if(attacks1.equals(Grtsword)){
-         return Grtsword+"\t"+sum+"\t2d6 +"+m;
+     if(a=='a'){
+         addAttack(Grtsword+"\t"+sum+"\t2d6 +"+m);
+         addAttack(lCrossbow+"\t"+sum+"\t1d8 +"+m+" Range 80/320"); 
      }
-      if(attacks1.equals(Lngsword)){
-         return Lngsword+"\t"+sum+"\t1d10 +"+m;
+     else if(a=='b'){
+         addAttack(Lngbow+"\t"+sum+"\t1d8"+m+" Range 150/600");
+         addAttack(Handaxe+"\t"+sum+"\t1d6 +"+m+" Range 20/60");
+         addAttack(Handaxe+"\t"+sum+"\t1d6 +"+m+" Range 20/60");
+         addAttack(pike+"\t"+sum+"\t1d10 +"+m);
+         addAttack(Mrningstar+"\t"+sum+"\t1d8 +"+m);
+        
+  
+     
      }
-       if(attacks1.equals(pike)){
-         return pike+"\t"+sum+"\t1d10 +"+m;
-     }
-        if(attacks1.equals(Mrningstar)){
-         return Mrningstar+"\t"+sum+"\t1d8 +"+m;
-     }
-        if(attacks1.equals(lCrossbow)){
-         return lCrossbow+"\t"+sum+"\t1d8 +"+m+" Range 80/320";
-     }
-         if(attacks1.equals(Handaxe)){
-         return Handaxe+"\t"+sum+"\t1d6 +"+m+" Range 20/60";
-     }
-          if(attacks1.equals(Shortbow)){
-         return Shortbow+"\t"+sum+"\t1d6 +"+m+" Range 80/320";
-     }
-           if(attacks1.equals(Battleaxe)){
-         return Battleaxe+"\t"+sum+"\t1d8 +"+m;
-     }
-           else
-               return"Invalid weapon";
+
     }
 
-    @Override
-    protected String attacks2(int m, int p, String attacks2) {
-           String Grtsword="Greatsword";
-     String Lngsword="Longsword";
-     String Mrningstar="Morningstar";
-     String pike="Pike";
-     String lCrossbow="Light Crossbow";
-     String Handaxe="Handaxe";
-     String Shortbow="Short bow";
-     String Battleaxe="Battleaxe";
-     int sum= m+p;
-     if(attacks2.equals(Grtsword)){
-         return Grtsword+"\t"+sum+"\t2d6 +"+m;
-     }
-      if(attacks2.equals(Lngsword)){
-         return Lngsword+"\t"+sum+"\t1d10 +"+m;
-     }
-       if(attacks2.equals(pike)){
-         return pike+"\t"+sum+"\t1d10 +"+m;
-     }
-        if(attacks2.equals(Mrningstar)){
-         return Mrningstar+"\t"+sum+"\t1d8 +"+m;
-     }
-        if(attacks2.equals(lCrossbow)){
-         return lCrossbow+"\t"+sum+"\t1d8 +"+m+" Range 80/320";
-     }
-         if(attacks2.equals(Handaxe)){
-         return Handaxe+"\t"+sum+"\t1d6 +"+m+" Range 20/60";
-     }
-          if(attacks2.equals(Shortbow)){
-         return Shortbow+"\t"+sum+"\t1d6 +"+m+" Range 80/320";
-     }
-           if(attacks2.equals(Battleaxe)){
-         return Battleaxe+"\t"+sum+"\t1d8 +"+m;
-     }
-           else
-               return"Invalid weapon";
+   
+    protected void abilities() {
+        addAbility("Second Wind: At first level, on your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. Once you use this feature, you must finish a short or long rest before you can use it again.");
     }
     }
 

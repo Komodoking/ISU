@@ -8,8 +8,15 @@ public abstract class Character {
  protected ArrayList<String> abilities;
  protected ArrayList<String> prof;
  protected ArrayList<String> skills;
- StatGetter g=new StatGetter();
- int str,dex,con,iint,wis,cha,ac,hp,perc;
+ protected ArrayList<String> equipement;
+ protected ArrayList<String> attacks;
+ StatGetter f=new StatGetter();
+  StatGetter a=new StatGetter();
+   StatGetter b=new StatGetter();
+    StatGetter c=new StatGetter();
+     StatGetter d=new StatGetter();
+      StatGetter e=new StatGetter();
+ int str,dex,con,iint,wis,cha,ac,hp,perc,spd;
   static  int pb=2;
     static String backstory;
   
@@ -18,16 +25,24 @@ public abstract class Character {
        abilities = new ArrayList<String>();
        prof= new ArrayList<String>();
     skills=new ArrayList<String>();
-       str=g.getStat();
-     dex=g.getStat();
-     con=g.getStat();
-     iint=g.getStat();
-     wis=g.getStat();
-     cha=g.getStat();
-     ac=0;
-     hp=0;
+    equipement= new ArrayList<String>();
+    attacks=new ArrayList<String>();
+       str=a.getStat();
+     dex=b.getStat();
+     con=c.getStat();
+     iint=d.getStat();
+     wis=e.getStat();
+     cha=f.getStat();
+     ac=acget('a', dex);
+     hp=hpget(modgetter(con));
+     perc=perception(wis);
+     spd=getSpd();
        getRaceData(r);
    }
+
+    public int getSpd() {
+        return spd;
+    }
 
     public int getStr() {
         return str;
@@ -64,15 +79,30 @@ public abstract class Character {
     public int getHp() {
         return hp;
     }
-   abstract protected void hpget(int c);
-   abstract protected void acget(char t, int d);
-   abstract protected String[] equipement(char a);
-   abstract protected String attacks1(int m,int p, String attacks1);
-   abstract protected String attacks2(int m,int p, String attacks1);
-   abstract protected void perception(int w);
+   abstract protected int hpget(int c);
+   abstract protected int acget(char t, int d);
+   abstract protected void equipement(char a);
+   abstract  protected void proficiencies();
+   abstract protected void attacks(int m,int p,char a);
+   abstract protected void abilities();
+   abstract protected int perception(int w);
    abstract protected int getmoney();
    
+    public final void addEquip(String eq){
+         equipement.add(eq);
+   }
    
+   
+   public final ArrayList<String> getEquip(){
+       return  equipement;
+   } public final void addAttack(String at){
+         attacks.add(at);
+   }
+   
+   
+   public final ArrayList<String> getattack(){
+       return  attacks;
+   }
    public final void addAbility(String ab){
        abilities.add(ab);
    }
@@ -136,12 +166,9 @@ public abstract class Character {
        public void getRaceData(String race){
            
        if(race=="human"){
-         str++;
-         dex++;
-         con++;
-         iint++;
-         wis++;
-         cha++;
+           addProf("Common");
+           addProf("Elvish");
+           spd=30;
        } 
        
        if(race=="Elf"){
@@ -159,6 +186,7 @@ public abstract class Character {
             addProf("Shortsword");
             addProf("Shortbow");
             addProf("Longbow");
+            spd=30;
        }
        
        if(race=="Half-Elf"){
@@ -177,22 +205,45 @@ public abstract class Character {
            addProf("Common");
             addProf("Elvish");
             addProf("Undercommon");
-            
+            spd=30;
             
        }
        
         if(race=="Dwarf"){
            str+=2;
+           con+=2;
+            addProf("Battleaxe");
+            addProf("Handaxe");
+            addProf("Light Hammer");
+            addProf("Warhammer");
+            addProf("Common");
+            addProf("Dwarvish");
+            addAbility("Dwarvern Resilience:You have advantage on saving throws against poison, and you have resistance against poison damage");
+            addAbility("Darkvision:Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.");
+            addAbility("Stonecunning:Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.");
+            spd=25;
        }
         
-        if(race=="Dragonborn"){
-        cha++;
-        str+=2;
+        if(race=="Aarakocra"){
+        wis++;
+        dex+=2;
+        spd=25;
+            addProf("Common");
+            addProf("Aarakocra");
+            addProf("Auran");
+            addAbility("Flight:You have a flying speed of 50 feet. To use this speed, you can’t be wearing medium or heavy armor.");
+            addAbility("You are proficient with your unarmed strikes, which deal 1d4 slashing damage on a hit.");
         }
         
           if(race=="Tiefling"){
           cha+=2;
           iint++;
+          spd=30;
+              addProf("Common");
+              addProf("Infernal");
+              addAbility("Hellish resistance: You have resistance to fire damage.");
+              addAbility("Darkvision:Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.");
+              addAbility("Infernal Legacy:You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the hellish rebuke spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells.");
         }
        }
    
