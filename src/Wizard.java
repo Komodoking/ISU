@@ -40,6 +40,7 @@ ArrayList <String> spelllist;
          String epack[]={"Backpack","Bedroll","Mess kit","Torch x 10","10 days of rations", " Waterskin"," 50 ft rope"};
          for (int i = 0; i < epack.length; i++) {
              addEquip(epack[i]);
+             addEquip("Wizard Wand");
          }
                }
   
@@ -134,7 +135,7 @@ protected void spelllist(char a){
 
    
     protected void abilities() {
-        addAbility("Spellcasting: you can cast spells from your spell list, your modifier is intelligence");
+        addAbility("Spellcasting: you can cast spells from your spell list, your modifier is intelligence. This is due to your immense amount of time studying magic by yourself, or at a school");
         addAbility("Arcane Recovery:Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher.");
     }
 

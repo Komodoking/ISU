@@ -42,6 +42,7 @@ String race="";
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
         txtlvl = new javax.swing.JLabel();
         lblcharstat = new javax.swing.JLabel();
         charmod = new javax.swing.JLabel();
@@ -146,6 +147,9 @@ String race="";
         mnbard = new javax.swing.JCheckBoxMenuItem();
         mnbarb = new javax.swing.JMenuItem();
         mnMonk = new javax.swing.JMenuItem();
+        mndruid = new javax.swing.JMenuItem();
+        MnRogue = new javax.swing.JMenuItem();
+        mnpal = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mnhuman = new javax.swing.JMenuItem();
         mnelf = new javax.swing.JMenuItem();
@@ -164,6 +168,8 @@ String race="";
 
         jMenu4.setText("Edit");
         jMenuBar2.add(jMenu4);
+
+        jMenuItem5.setText("jMenuItem5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -721,6 +727,30 @@ String race="";
         });
         jMenu1.add(mnMonk);
 
+        mndruid.setText("Druid");
+        mndruid.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mndruidActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mndruid);
+
+        MnRogue.setText("Rogue");
+        MnRogue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnRogueActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MnRogue);
+
+        mnpal.setText("Paladin");
+        mnpal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnpalActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnpal);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Race");
@@ -1252,6 +1282,7 @@ String race="";
 
     private void mnfightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnfightActionPerformed
      c= new Fighter(txtname.getText(),race);
+    
      Strength.setSelected(true);
      Dexterity.setSelected(false);
      Constitiution.setSelected(true);
@@ -1286,6 +1317,7 @@ String race="";
     }//GEN-LAST:event_mnfightActionPerformed
 
     private void mnhumanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnhumanActionPerformed
+        
         c.getRaceData("Human");
         race.equals("Human");
              lblstrstat.setText("Strength "+(c.getStr()+1));
@@ -1312,7 +1344,8 @@ String race="";
     }//GEN-LAST:event_btnsetSkillsActionPerformed
 
     private void mnWizardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnWizardActionPerformed
-       c= new Wizard(txtname.getText(),race);
+    
+        c= new Wizard(txtname.getText(),race);
     Strength.setSelected(false);
      Dexterity.setSelected(false);
      Constitiution.setSelected(false);
@@ -1367,6 +1400,7 @@ String race="";
     }//GEN-LAST:event_CharismaActionPerformed
 
     private void mnelfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnelfActionPerformed
+
         c.getRaceData("Elf");
         race.equals("Elf");
         
@@ -1396,6 +1430,7 @@ String race="";
     }//GEN-LAST:event_mnelfActionPerformed
 
     private void mnbardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnbardActionPerformed
+
         c=new Bard(txtname.getText(), race);
         Strength.setSelected(false);
      Dexterity.setSelected(true);
@@ -1430,7 +1465,8 @@ String race="";
     }//GEN-LAST:event_mnbardActionPerformed
 
     private void mnbarbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnbarbActionPerformed
-            c=new Barbarian(txtname.getText(), race);
+
+        c=new Barbarian(txtname.getText(), race);
         Strength.setSelected(true);
      Dexterity.setSelected(false);
      Constitiution.setSelected(true);
@@ -1468,7 +1504,8 @@ String race="";
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void mnMonkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnMonkActionPerformed
-         c=new Monk(txtname.getText(), race);
+      
+        c=new Monk(txtname.getText(), race);
         Strength.setSelected(true);
      Dexterity.setSelected(false);
      Constitiution.setSelected(true);
@@ -1502,6 +1539,7 @@ String race="";
     }//GEN-LAST:event_mnMonkActionPerformed
 
     private void mnhflelfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnhflelfActionPerformed
+  
         c.getRaceData("Half-Elf");
         race.equals("Half-Elf");
         
@@ -1531,6 +1569,7 @@ String race="";
     }//GEN-LAST:event_mnhflelfActionPerformed
 
     private void mndwarfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mndwarfActionPerformed
+       
         c.getRaceData("Dwarf");
         race.equals("Dwarf");
         
@@ -1560,6 +1599,7 @@ String race="";
     }//GEN-LAST:event_mndwarfActionPerformed
 
     private void mntiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mntiefActionPerformed
+         
         c.getRaceData("Tiefling");
         race.equals("Tieflimg");
         
@@ -1589,6 +1629,7 @@ String race="";
     }//GEN-LAST:event_mntiefActionPerformed
 
     private void mnbribActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnbribActionPerformed
+ 
         c.getRaceData("Aarakocra");
         race.equals("Aarakocra");
         
@@ -1616,6 +1657,108 @@ String race="";
             ab.addElement(aby);
         }
     }//GEN-LAST:event_mnbribActionPerformed
+
+    private void mndruidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mndruidActionPerformed
+            c=new Druid(txtname.getText(), race);
+        Strength.setSelected(false);
+     Dexterity.setSelected(false);
+     Constitiution.setSelected(false);
+     Intelligence.setSelected(true);
+     Wisdom.setSelected(true);
+     Charisma.setSelected(false);
+     Lblgold.setText("Gold coins: "+c.getmoney());
+     lblstrstat.setText("Strength "+c.getStr());
+    lblstrmod.setText(""+c.modgetter(c.getStr()));
+    lbldexstat.setText("Dexterity "+c.getDex());
+    dexstat.setText(""+c.modgetter(c.getDex()));
+        lblconstat.setText("Constitution "+c.getCon());
+    conmod.setText(""+c.modgetter(c.getCon()));
+        lblintstat.setText("Intelligence "+c.getIint());
+    intmod.setText(""+c.modgetter(c.getIint()));
+        lblwisstat.setText("Wisdom "+c.getWis());
+    wismod.setText(""+c.modgetter(c.getWis()));
+        lblcharstat.setText("Charisma "+c.getCha());
+    charmod.setText(""+c.modgetter(c.getCha()));
+ c.hpget(c.getCon());
+    lblmaxhp.setText("Max Hp "+c.getHp());
+    lblinit.setText("Initiative "+c.modgetter(c.getDex()));
+    lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
+    
+        for (String p:c.getProf()) {
+             listporf.addElement(p);
+        }
+        for (String aby: c.getAbilities()) {
+            ab.addElement(aby);
+        }
+    }//GEN-LAST:event_mndruidActionPerformed
+
+    private void MnRogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRogueActionPerformed
+      c=new Druid(txtname.getText(), race);
+        Strength.setSelected(false);
+     Dexterity.setSelected(true);
+     Constitiution.setSelected(false);
+     Intelligence.setSelected(true);
+     Wisdom.setSelected(false);
+     Charisma.setSelected(false);
+     Lblgold.setText("Gold coins: "+c.getmoney());
+     lblstrstat.setText("Strength "+c.getStr());
+    lblstrmod.setText(""+c.modgetter(c.getStr()));
+    lbldexstat.setText("Dexterity "+c.getDex());
+    dexstat.setText(""+c.modgetter(c.getDex()));
+        lblconstat.setText("Constitution "+c.getCon());
+    conmod.setText(""+c.modgetter(c.getCon()));
+        lblintstat.setText("Intelligence "+c.getIint());
+    intmod.setText(""+c.modgetter(c.getIint()));
+        lblwisstat.setText("Wisdom "+c.getWis());
+    wismod.setText(""+c.modgetter(c.getWis()));
+        lblcharstat.setText("Charisma "+c.getCha());
+    charmod.setText(""+c.modgetter(c.getCha()));
+ c.hpget(c.getCon());
+    lblmaxhp.setText("Max Hp "+c.getHp());
+    lblinit.setText("Initiative "+c.modgetter(c.getDex()));
+    lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
+ 
+        for (String p:c.getProf()) {
+             listporf.addElement(p);
+        }
+        for (String aby: c.getAbilities()) {
+            ab.addElement(aby);
+        }
+    }//GEN-LAST:event_MnRogueActionPerformed
+
+    private void mnpalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnpalActionPerformed
+        c=new Paladin(txtname.getText(), race);
+        Strength.setSelected(false);
+     Dexterity.setSelected(false);
+     Constitiution.setSelected(false);
+     Intelligence.setSelected(false);
+     Wisdom.setSelected(true);
+     Charisma.setSelected(true);
+     Lblgold.setText("Gold coins: "+c.getmoney());
+     lblstrstat.setText("Strength "+c.getStr());
+    lblstrmod.setText(""+c.modgetter(c.getStr()));
+    lbldexstat.setText("Dexterity "+c.getDex());
+    dexstat.setText(""+c.modgetter(c.getDex()));
+        lblconstat.setText("Constitution "+c.getCon());
+    conmod.setText(""+c.modgetter(c.getCon()));
+        lblintstat.setText("Intelligence "+c.getIint());
+    intmod.setText(""+c.modgetter(c.getIint()));
+        lblwisstat.setText("Wisdom "+c.getWis());
+    wismod.setText(""+c.modgetter(c.getWis()));
+        lblcharstat.setText("Charisma "+c.getCha());
+    charmod.setText(""+c.modgetter(c.getCha()));
+ c.hpget(c.getCon());
+    lblmaxhp.setText("Max Hp "+c.getHp());
+    lblinit.setText("Initiative "+c.modgetter(c.getDex()));
+    lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
+ 
+        for (String p:c.getProf()) {
+             listporf.addElement(p);
+        }
+        for (String aby: c.getAbilities()) {
+            ab.addElement(aby);
+        }
+    }//GEN-LAST:event_mnpalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1659,6 +1802,7 @@ String race="";
     private javax.swing.JRadioButton Intelligence;
     private javax.swing.JLabel Lblgold;
     private javax.swing.JList<String> ListPorf;
+    private javax.swing.JMenuItem MnRogue;
     private javax.swing.JRadioButton Strength;
     private javax.swing.JRadioButton Wisdom;
     private javax.swing.JRadioButton btacr;
@@ -1727,6 +1871,7 @@ String race="";
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -1759,11 +1904,13 @@ String race="";
     private javax.swing.JMenuItem mnbarb;
     private javax.swing.JCheckBoxMenuItem mnbard;
     private javax.swing.JMenuItem mnbrib;
+    private javax.swing.JMenuItem mndruid;
     private javax.swing.JMenuItem mndwarf;
     private javax.swing.JMenuItem mnelf;
     private javax.swing.JMenuItem mnfight;
     private javax.swing.JMenuItem mnhflelf;
     private javax.swing.JMenuItem mnhuman;
+    private javax.swing.JMenuItem mnpal;
     private javax.swing.JMenuItem mntief;
     private javax.swing.JLabel txtlvl;
     private javax.swing.JTextField txtname;

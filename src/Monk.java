@@ -48,12 +48,14 @@ public class Monk extends Character {
     protected void attacks(int m, int p, char a) {
         int sum=m+p;
         if(a=='a'){
-            addAttack("Shortsword "+sum+"\td6+ "+m);
-            addAttack("Unarmed Strike "+sum+"\td4 "+m);
-            
+            addAttack("Shortsword "+sum+"\t1d6+ "+m);
+            addAttack("Unarmed Strike "+sum+"\t1d4 "+m);
+             addAttack("Dart x10 "+sum+"\t1d4 "+m+" Range: 20/60");
         }
         else{
-            addAttack("Spear "+sum+"\td6 "+m+" Range: 20/60");
+            addAttack("Spear "+sum+"\t1d6 "+m+" Range: 20/60");
+            addAttack("Unarmed Strike "+sum+"\t1d4 "+m);
+            addAttack("Dart x10 "+sum+"\t1d4 "+m+" Range: 20/60");
         }
     }
 

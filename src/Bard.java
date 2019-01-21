@@ -47,8 +47,10 @@ public class Bard extends Character {
         if (a == 'a') {
             addAttack("Rapier " + sum + "\t1d6+ " + m);
             addAttack("Viscious Mockery "+"Wis save:"+splsave+"\t1d4+ "+splattack);
+            addAttack("Dagger "+sum+"\t1d4+ "+m+" Range 20/60");
         } else {
             addAttack("Longsword " + sum + "\t1d10 " + m);
+             addAttack("Dagger "+sum+"\t1d4+ "+m+" Range 20/60");
         }
     }
 
@@ -59,6 +61,7 @@ public class Bard extends Character {
                 + "Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the DM says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time.\n"
                 + "\n"
                 + "You can use this feature a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest. Your Bardic Inspiration die changes when you reach certain levels in this class. The die becomes a d8 at 5th level, a d10 at 10th level, and a d12 at 15th level. ");
+        addAbility("Spellcasting:Using the power of song, lore, and comedy, you are able to cast spells. Yout spellcasting modifier is Charisma ");
     }
 
     @Override
@@ -106,7 +109,7 @@ public class Bard extends Character {
 
         } else {
             addCantrip("True Strike: You extend your hand and point a finger at a target in range. Your magic grants you a brief insight into the target's defenses. On your next turn, you gain advantage on your first attack roll against the target, provided that this spell hasn't ended.");
-            addCantrip("You point your finger toward a creature within range and whisper a message. The target (and only the target) hears the message and can reply in a whisper that only you can hear. \n"
+            addCantrip("Message:You point your finger toward a creature within range and whisper a message. The target (and only the target) hears the message and can reply in a whisper that only you can hear. \n"
                     + "You can cast this spell through solid objects if you are familiar with the target and know it is beyond the barrier. Magical silence, 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood blocks the spell. The spell doesn't have to follow a straight line and can travel freely around corners or through openings.");
 
         }
