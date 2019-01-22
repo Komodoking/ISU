@@ -27,6 +27,9 @@ String race="";
         initComponents();
         ListPorf.setModel(listporf);
         listaby.setModel(ab);
+        lstequipe.setModel(Equip);
+        lstattacks.setModel(atk);
+        
     }
 
     /**
@@ -57,8 +60,8 @@ String race="";
         lblwisstat = new javax.swing.JLabel();
         wismod = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblrace = new javax.swing.JLabel();
+        lblallingement = new javax.swing.JLabel();
         dwnstr = new javax.swing.JButton();
         dwndex = new javax.swing.JButton();
         dwncon = new javax.swing.JButton();
@@ -70,7 +73,7 @@ String race="";
         upcon = new javax.swing.JButton();
         updex = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblgender = new javax.swing.JLabel();
         lblperc = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -108,8 +111,8 @@ String race="";
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        lblheight = new javax.swing.JLabel();
+        lblweight = new javax.swing.JLabel();
         lblspd = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -140,6 +143,8 @@ String race="";
         jScrollPane4 = new javax.swing.JScrollPane();
         jList3 = new javax.swing.JList<>();
         lblsplslots = new javax.swing.JLabel();
+        lblclass = new javax.swing.JLabel();
+        btnreset = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mnfight = new javax.swing.JMenuItem();
@@ -158,10 +163,10 @@ String race="";
         mnbrib = new javax.swing.JMenuItem();
         mntief = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        mnsetGender = new javax.swing.JMenuItem();
+        mnAllingement = new javax.swing.JMenuItem();
+        MnAllingement = new javax.swing.JMenuItem();
+        mnweight = new javax.swing.JMenuItem();
 
         jMenu3.setText("File");
         jMenuBar2.add(jMenu3);
@@ -201,9 +206,9 @@ String race="";
 
         jLabel1.setText("Experience points:0");
 
-        jLabel2.setText("Race:");
+        lblrace.setText("Race:");
 
-        jLabel3.setText("Allignement:");
+        lblallingement.setText("Allignement:");
 
         dwnstr.setText("Switch Down");
         dwnstr.addActionListener(new java.awt.event.ActionListener() {
@@ -277,7 +282,7 @@ String race="";
 
         jLabel4.setText("Character Name:");
 
-        jLabel5.setText("Gender");
+        lblgender.setText("Gender");
 
         lblperc.setText("Passive Wisdom(Perception)");
 
@@ -285,7 +290,7 @@ String race="";
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btat.setText("Athleitics(STR)");
+        btat.setText("Athletics(STR)");
         btat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btatActionPerformed(evt);
@@ -599,9 +604,9 @@ String race="";
 
         jLabel13.setText("Backstory:");
 
-        jLabel14.setText("Height:");
+        lblheight.setText("Height:");
 
-        jLabel15.setText("Weight:");
+        lblweight.setText("Weight:");
 
         lblspd.setText("Speed:");
 
@@ -683,7 +688,9 @@ String race="";
 
         jScrollPane4.setViewportView(jList3);
 
-        lblsplslots.setText("Spell Slots:x2 lvl1");
+        lblclass.setText("Class:");
+
+        btnreset.setText("Reset");
 
         jMenu1.setText("Class");
 
@@ -807,22 +814,37 @@ String race="";
 
         jMenu5.setText("Character");
 
-        jMenuItem1.setText("Set Gender");
-        jMenu5.add(jMenuItem1);
-
-        jMenuItem2.setText("Set Allignement");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        mnsetGender.setText("Set Gender");
+        mnsetGender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                mnsetGenderActionPerformed(evt);
             }
         });
-        jMenu5.add(jMenuItem2);
+        jMenu5.add(mnsetGender);
 
-        jMenuItem3.setText("Set Height");
-        jMenu5.add(jMenuItem3);
+        mnAllingement.setText("Set Allignement");
+        mnAllingement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnAllingementActionPerformed(evt);
+            }
+        });
+        jMenu5.add(mnAllingement);
 
-        jMenuItem4.setText("Set Weight");
-        jMenu5.add(jMenuItem4);
+        MnAllingement.setText("Set Height");
+        MnAllingement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MnAllingementActionPerformed(evt);
+            }
+        });
+        jMenu5.add(MnAllingement);
+
+        mnweight.setText("Set Weight");
+        mnweight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnweightActionPerformed(evt);
+            }
+        });
+        jMenu5.add(mnweight);
 
         jMenuBar1.add(jMenu5);
 
@@ -880,16 +902,12 @@ String race="";
                                     .addComponent(lblcharstat, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
                                     .addComponent(wismod, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblwisstat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(dwnwis, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(upwis, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(30, 30, 30)
-                                        .addComponent(upcha, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(dwnwis, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(upwis, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(upcha, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGap(13, 13, 13)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -927,33 +945,33 @@ String race="";
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblsplslots))
                     .addComponent(jLabel10)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(182, 182, 182))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                    .addComponent(jLabel11)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(92, 92, 92))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(115, 115, 115)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblgender)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblrace, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblclass)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
+                            .addComponent(lblallingement)
                             .addComponent(txtlvl))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -961,33 +979,40 @@ String race="";
                                 .addComponent(jLabel1))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(30, 30, 30)
-                                .addComponent(jLabel14)
+                                .addComponent(lblheight)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel15))))
+                                .addComponent(lblweight))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel8)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(jLabel13))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnreset)
+                        .addGap(76, 76, 76))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabel3)
-                        .addComponent(jLabel14)
-                        .addComponent(jLabel15)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblgender)
+                                .addComponent(lblallingement)
+                                .addComponent(lblheight)
+                                .addComponent(lblweight))))
+                    .addComponent(btnreset))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
@@ -1055,10 +1080,11 @@ String race="";
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel2)
+                                .addComponent(lblrace)
                                 .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtlvl)
-                                .addComponent(jLabel1))
+                                .addComponent(jLabel1)
+                                .addComponent(lblclass))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1153,67 +1179,80 @@ String race="";
     }
     
     private void btatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btatActionPerformed
-        updateSkills(btat);         
+        updateSkills(btat);     
+         c.addSkill("Athletics");
     }//GEN-LAST:event_btatActionPerformed
 
     private void btacrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btacrActionPerformed
         // TODO add your handling code here:
-         updateSkills(btacr); 
+         updateSkills(btacr);
+          c.addSkill("Acrobatics");
     }//GEN-LAST:event_btacrActionPerformed
 
     private void btsohActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btsohActionPerformed
         // TODO add your handling code here:
          updateSkills(btsoh); 
+          c.addSkill("Sleight of Hand");
     }//GEN-LAST:event_btsohActionPerformed
 
     private void btstlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btstlActionPerformed
         // TODO add your handling code here:
         updateSkills(btstl); 
+         c.addSkill("Stealth");
     }//GEN-LAST:event_btstlActionPerformed
 
     private void btarcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btarcActionPerformed
         // TODO add your handling code here:
         updateSkills(btarc); 
+         c.addSkill("Arcana");
     }//GEN-LAST:event_btarcActionPerformed
 
     private void bthisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bthisActionPerformed
         // TODO add your handling code here:
-        updateSkills(bthis); 
+        updateSkills(bthis);
+         c.addSkill("History ");
     }//GEN-LAST:event_bthisActionPerformed
 
     private void btinvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btinvActionPerformed
         // TODO add your handling code here:
         updateSkills(btinv); 
+         c.addSkill("Investigation");
     }//GEN-LAST:event_btinvActionPerformed
 
     private void btnatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnatActionPerformed
         // TODO add your handling code here:
         updateSkills(btat); 
+         c.addSkill("Nature ");
     }//GEN-LAST:event_btnatActionPerformed
 
     private void btrelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btrelActionPerformed
         // TODO add your handling code here:
         updateSkills(btrel); 
+        c.addSkill("Religion");
     }//GEN-LAST:event_btrelActionPerformed
 
     private void btahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btahActionPerformed
         // TODO add your handling code here:
         updateSkills(btah); 
+         c.addSkill("Animal Handling");
     }//GEN-LAST:event_btahActionPerformed
 
     private void btinsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btinsActionPerformed
         // TODO add your handling code here:
         updateSkills(btins); 
+         c.addSkill("Insight");
     }//GEN-LAST:event_btinsActionPerformed
 
     private void btmedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btmedActionPerformed
         // TODO add your handling code here:
         updateSkills(btmed); 
+         c.addSkill("Medicine");
     }//GEN-LAST:event_btmedActionPerformed
 
     private void btpercActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btpercActionPerformed
         // TODO add your handling code here:
         updateSkills(btperc); 
+         c.addSkill("Perception");
     }//GEN-LAST:event_btpercActionPerformed
 
     private void btwisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btwisActionPerformed
@@ -1224,11 +1263,13 @@ String race="";
     private void btdecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btdecActionPerformed
         // TODO add your handling code here:
         updateSkills(btdec); 
+         c.addSkill("Deception");
     }//GEN-LAST:event_btdecActionPerformed
 
     private void btintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btintActionPerformed
         // TODO add your handling code here:
         updateSkills(btint); 
+         c.addSkill("Intimidation");
     }//GEN-LAST:event_btintActionPerformed
 
     private void btperfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btperfActionPerformed
@@ -1244,45 +1285,73 @@ String race="";
     }//GEN-LAST:event_btpersActionPerformed
 
     private void dwnstrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwnstrActionPerformed
-        // TODO add your handling code here:
+          lblstrstat.setText("Strength "+c.getStr());
+    lblstrmod.setText(""+c.modgetter(c.getStr()));
+    lbldexstat.setText("Dexterity "+c.getDex());
+    dexstat.setText(""+c.modgetter(c.getDex()));
     }//GEN-LAST:event_dwnstrActionPerformed
 
     private void updexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updexActionPerformed
-        // TODO add your handling code here:
+         lblstrstat.setText("Strength "+c.getDex());
+    lblstrmod.setText(""+c.modgetter(c.getDex()));
+    lbldexstat.setText("Dexterity "+c.getStr());
+    dexstat.setText(""+c.modgetter(c.getStr()));
     }//GEN-LAST:event_updexActionPerformed
 
     private void upconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upconActionPerformed
-        // TODO add your handling code here:
+         lblconstat.setText("Constitution "+c.getDex());
+    conmod.setText(""+c.modgetter(c.getDex()));
+    lbldexstat.setText("Dexterity "+c.getCon());
+    dexstat.setText(""+c.modgetter(c.getCon()));
     }//GEN-LAST:event_upconActionPerformed
 
     private void dwnconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwnconActionPerformed
-        // TODO add your handling code here:
+   lblintstat.setText("Intelligence "+c.getCon());
+    intmod.setText(""+c.modgetter(c.getCon()));
+    lblconstat.setText("Constitution "+c.getIint());
+    conmod.setText(""+c.modgetter(c.getIint()));
     }//GEN-LAST:event_dwnconActionPerformed
 
     private void upintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upintActionPerformed
-        // TODO add your handling code here:
+         lblintstat.setText("Intelligence "+c.getCon());
+    intmod.setText(""+c.modgetter(c.getCon()));
+    lblconstat.setText("Constitution "+c.getIint());
+    conmod.setText(""+c.modgetter(c.getIint()));
     }//GEN-LAST:event_upintActionPerformed
 
     private void dwnintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwnintActionPerformed
-        // TODO add your handling code here:
+        lblwisstat.setText("Wisdom "+c.getWis());
+    wismod.setText(""+c.modgetter(c.getWis()));
+    lblintstat.setText("Intelligence "+c.getIint());
+    intmod.setText(""+c.modgetter(c.getIint()));
     }//GEN-LAST:event_dwnintActionPerformed
 
     private void upwisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upwisActionPerformed
-        // TODO add your handling code here:
+        lblwisstat.setText("Wisdom "+c.getIint());
+    wismod.setText(""+c.modgetter(c.getIint()));
+    lblintstat.setText("Intelligence "+c.getWis());
+    intmod.setText(""+c.modgetter(c.getWis()));
     }//GEN-LAST:event_upwisActionPerformed
 
     private void dwnwisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwnwisActionPerformed
-        // TODO add your handling code here:
+        lblcharstat.setText("Charisma "+c.getCha());
+    charmod.setText(""+c.modgetter(c.getCha()));
+    lblwisstat.setText("Wisdom "+c.getWis());
+    wismod.setText(""+c.modgetter(c.getWis()));
     }//GEN-LAST:event_dwnwisActionPerformed
 
     private void upchaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upchaActionPerformed
-    
-   
+
+   lblcharstat.setText("Charisma "+c.getWis());
+    charmod.setText(""+c.modgetter(c.getWis()));
+    lblwisstat.setText("Wisdom "+c.getCha());
+    wismod.setText(""+c.modgetter(c.getCha()));
     }//GEN-LAST:event_upchaActionPerformed
 
     private void mnfightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnfightActionPerformed
      c= new Fighter(txtname.getText(),race);
-    
+    c.abilities();
+            c.proficiencies();
      Strength.setSelected(true);
      Dexterity.setSelected(false);
      Constitiution.setSelected(true);
@@ -1307,11 +1376,17 @@ String race="";
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
     
-        for (String p:c.getProf()) {
+         for (String p:c.getProf()) {
              listporf.addElement(p);
         }
         for (String aby: c.getAbilities()) {
             ab.addElement(aby);
+        }
+        for (String eqp:c.getEquip()) {
+            Equip.addElement(eqp);
+        }
+        for (String atkn:c.getattack()) {
+             atk.addElement(atkn);
         }
     
     }//GEN-LAST:event_mnfightActionPerformed
@@ -1346,6 +1421,8 @@ String race="";
     private void mnWizardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnWizardActionPerformed
     
         c= new Wizard(txtname.getText(),race);
+        c.abilities();
+            c.proficiencies();
     Strength.setSelected(false);
      Dexterity.setSelected(false);
      Constitiution.setSelected(false);
@@ -1375,6 +1452,12 @@ String race="";
         }
         for (String aby: c.getAbilities()) {
             ab.addElement(aby);
+        }
+        for (String eqp:c.getEquip()) {
+            Equip.addElement(eqp);
+        }
+        for (String atkn:c.getattack()) {
+             atk.addElement(atkn);
         }
     
     }//GEN-LAST:event_mnWizardActionPerformed
@@ -1421,17 +1504,25 @@ String race="";
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
     
-        for (String p:c.getProf()) {
+           for (String p:c.getProf()) {
              listporf.addElement(p);
         }
         for (String aby: c.getAbilities()) {
             ab.addElement(aby);
+        }
+        for (String eqp:c.getEquip()) {
+            Equip.addElement(eqp);
+        }
+        for (String atkn:c.getattack()) {
+             atk.addElement(atkn);
         }
     }//GEN-LAST:event_mnelfActionPerformed
 
     private void mnbardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnbardActionPerformed
 
         c=new Bard(txtname.getText(), race);
+        c.abilities();
+            c.proficiencies();
         Strength.setSelected(false);
      Dexterity.setSelected(true);
      Constitiution.setSelected(false);
@@ -1456,17 +1547,25 @@ String race="";
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
     
-        for (String p:c.getProf()) {
+          for (String p:c.getProf()) {
              listporf.addElement(p);
         }
         for (String aby: c.getAbilities()) {
             ab.addElement(aby);
+        }
+        for (String eqp:c.getEquip()) {
+            Equip.addElement(eqp);
+        }
+        for (String atkn:c.getattack()) {
+             atk.addElement(atkn);
         }
     }//GEN-LAST:event_mnbardActionPerformed
 
     private void mnbarbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnbarbActionPerformed
 
         c=new Barbarian(txtname.getText(), race);
+        c.abilities();
+            c.proficiencies();
         Strength.setSelected(true);
      Dexterity.setSelected(false);
      Constitiution.setSelected(true);
@@ -1490,25 +1589,30 @@ String race="";
     lblmaxhp.setText("Max Hp "+c.getHp());
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
-    
-        for (String p:c.getProf()) {
+       for (String p:c.getProf()) {
              listporf.addElement(p);
         }
         for (String aby: c.getAbilities()) {
             ab.addElement(aby);
         }
+        for (String eqp:c.getEquip()) {
+            Equip.addElement(eqp);
+        }
+        for (String atkn:c.getattack()) {
+             atk.addElement(atkn);
+        }
     }//GEN-LAST:event_mnbarbActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void mnAllingementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnAllingementActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_mnAllingementActionPerformed
 
     private void mnMonkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnMonkActionPerformed
       
         c=new Monk(txtname.getText(), race);
         Strength.setSelected(true);
-     Dexterity.setSelected(false);
-     Constitiution.setSelected(true);
+     Dexterity.setSelected(true);
+     Constitiution.setSelected(false);
      Intelligence.setSelected(false);
      Wisdom.setSelected(false);
      Charisma.setSelected(false);
@@ -1530,11 +1634,17 @@ String race="";
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
     
-        for (String p:c.getProf()) {
+         for (String p:c.getProf()) {
              listporf.addElement(p);
         }
         for (String aby: c.getAbilities()) {
             ab.addElement(aby);
+        }
+        for (String eqp:c.getEquip()) {
+            Equip.addElement(eqp);
+        }
+        for (String atkn:c.getattack()) {
+             atk.addElement(atkn);
         }
     }//GEN-LAST:event_mnMonkActionPerformed
 
@@ -1560,12 +1670,13 @@ String race="";
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
     
-        for (String p:c.getProf()) {
+   for (String p:c.getProf()) {
              listporf.addElement(p);
         }
         for (String aby: c.getAbilities()) {
             ab.addElement(aby);
         }
+    
     }//GEN-LAST:event_mnhflelfActionPerformed
 
     private void mndwarfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mndwarfActionPerformed
@@ -1590,12 +1701,13 @@ String race="";
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
     
-        for (String p:c.getProf()) {
+          for (String p:c.getProf()) {
              listporf.addElement(p);
         }
         for (String aby: c.getAbilities()) {
             ab.addElement(aby);
         }
+     
     }//GEN-LAST:event_mndwarfActionPerformed
 
     private void mntiefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mntiefActionPerformed
@@ -1620,12 +1732,13 @@ String race="";
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
     
-        for (String p:c.getProf()) {
+         for (String p:c.getProf()) {
              listporf.addElement(p);
         }
         for (String aby: c.getAbilities()) {
             ab.addElement(aby);
         }
+   
     }//GEN-LAST:event_mntiefActionPerformed
 
     private void mnbribActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnbribActionPerformed
@@ -1650,16 +1763,20 @@ String race="";
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
     
-        for (String p:c.getProf()) {
+          for (String p:c.getProf()) {
              listporf.addElement(p);
         }
         for (String aby: c.getAbilities()) {
             ab.addElement(aby);
         }
+       
     }//GEN-LAST:event_mnbribActionPerformed
 
     private void mndruidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mndruidActionPerformed
             c=new Druid(txtname.getText(), race);
+            c.abilities();
+            c.proficiencies();
+            
         Strength.setSelected(false);
      Dexterity.setSelected(false);
      Constitiution.setSelected(false);
@@ -1684,16 +1801,24 @@ String race="";
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
     
-        for (String p:c.getProf()) {
+         for (String p:c.getProf()) {
              listporf.addElement(p);
         }
         for (String aby: c.getAbilities()) {
             ab.addElement(aby);
         }
+        for (String eqp:c.getEquip()) {
+            Equip.addElement(eqp);
+        }
+        for (String atkn:c.getattack()) {
+             atk.addElement(atkn);
+        }
     }//GEN-LAST:event_mndruidActionPerformed
 
     private void MnRogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRogueActionPerformed
       c=new Druid(txtname.getText(), race);
+      c.abilities();
+            c.proficiencies();
         Strength.setSelected(false);
      Dexterity.setSelected(true);
      Constitiution.setSelected(false);
@@ -1718,16 +1843,24 @@ String race="";
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
  
-        for (String p:c.getProf()) {
+         for (String p:c.getProf()) {
              listporf.addElement(p);
         }
         for (String aby: c.getAbilities()) {
             ab.addElement(aby);
         }
+        for (String eqp:c.getEquip()) {
+            Equip.addElement(eqp);
+        }
+        for (String atkn:c.getattack()) {
+             atk.addElement(atkn);
+        }
     }//GEN-LAST:event_MnRogueActionPerformed
 
     private void mnpalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnpalActionPerformed
         c=new Paladin(txtname.getText(), race);
+        c.abilities();
+            c.proficiencies();
         Strength.setSelected(false);
      Dexterity.setSelected(false);
      Constitiution.setSelected(false);
@@ -1752,13 +1885,31 @@ String race="";
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
  
-        for (String p:c.getProf()) {
+           for (String p:c.getProf()) {
              listporf.addElement(p);
         }
         for (String aby: c.getAbilities()) {
             ab.addElement(aby);
         }
+        for (String eqp:c.getEquip()) {
+            Equip.addElement(eqp);
+        }
+        for (String atkn:c.getattack()) {
+             atk.addElement(atkn);
+        }
     }//GEN-LAST:event_mnpalActionPerformed
+
+    private void mnsetGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnsetGenderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnsetGenderActionPerformed
+
+    private void MnAllingementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnAllingementActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MnAllingementActionPerformed
+
+    private void mnweightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnweightActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnweightActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1802,6 +1953,7 @@ String race="";
     private javax.swing.JRadioButton Intelligence;
     private javax.swing.JLabel Lblgold;
     private javax.swing.JList<String> ListPorf;
+    private javax.swing.JMenuItem MnAllingement;
     private javax.swing.JMenuItem MnRogue;
     private javax.swing.JRadioButton Strength;
     private javax.swing.JRadioButton Wisdom;
@@ -1816,6 +1968,7 @@ String race="";
     private javax.swing.JRadioButton btinv;
     private javax.swing.JRadioButton btmed;
     private javax.swing.JRadioButton btnat;
+    private javax.swing.JButton btnreset;
     private javax.swing.JButton btnsetSkills;
     private javax.swing.JRadioButton btperc;
     private javax.swing.JRadioButton btperf;
@@ -1838,22 +1991,17 @@ String race="";
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1867,10 +2015,6 @@ String race="";
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1884,21 +2028,28 @@ String race="";
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel lblac;
+    private javax.swing.JLabel lblallingement;
     private javax.swing.JLabel lblcharstat;
+    private javax.swing.JLabel lblclass;
     private javax.swing.JLabel lblconstat;
     private javax.swing.JLabel lbldexstat;
+    private javax.swing.JLabel lblgender;
+    private javax.swing.JLabel lblheight;
     private javax.swing.JLabel lblinit;
     private javax.swing.JLabel lblintstat;
     private javax.swing.JLabel lblmaxhp;
     private javax.swing.JLabel lblperc;
+    private javax.swing.JLabel lblrace;
     private javax.swing.JLabel lblspd;
     private javax.swing.JLabel lblsplslots;
     private javax.swing.JLabel lblstrmod;
     private javax.swing.JLabel lblstrstat;
+    private javax.swing.JLabel lblweight;
     private javax.swing.JLabel lblwisstat;
     private javax.swing.JList<String> listaby;
     private javax.swing.JList<String> lstattacks;
     private javax.swing.JList<String> lstequipe;
+    private javax.swing.JMenuItem mnAllingement;
     private javax.swing.JMenuItem mnMonk;
     private javax.swing.JCheckBoxMenuItem mnWizard;
     private javax.swing.JMenuItem mnbarb;
@@ -1911,7 +2062,9 @@ String race="";
     private javax.swing.JMenuItem mnhflelf;
     private javax.swing.JMenuItem mnhuman;
     private javax.swing.JMenuItem mnpal;
+    private javax.swing.JMenuItem mnsetGender;
     private javax.swing.JMenuItem mntief;
+    private javax.swing.JMenuItem mnweight;
     private javax.swing.JLabel txtlvl;
     private javax.swing.JTextField txtname;
     private javax.swing.JButton upcha;
