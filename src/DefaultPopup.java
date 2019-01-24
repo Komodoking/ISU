@@ -13,8 +13,11 @@ public class DefaultPopup extends javax.swing.JPanel {
     /**
      * Creates new form DefaultPopup
      */
+    
+    private char selected;
     public DefaultPopup() {
         initComponents();
+        selected='?';
     }
 
     /**
@@ -82,12 +85,17 @@ public class DefaultPopup extends javax.swing.JPanel {
 
     private void btnopaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnopaActionPerformed
         // TODO add your handling code here:
+        selected = 'a';
     }//GEN-LAST:event_btnopaActionPerformed
 
     private void btnopbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnopbActionPerformed
         // TODO add your handling code here:
+        selected = 'b';
     }//GEN-LAST:event_btnopbActionPerformed
 
+    public char getSelected(){
+        return selected;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton btnopa;

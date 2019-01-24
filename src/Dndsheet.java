@@ -1285,16 +1285,26 @@ String race="";
     }//GEN-LAST:event_btpersActionPerformed
 
     private void dwnstrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwnstrActionPerformed
-          lblstrstat.setText("Strength "+c.getStr());
-    lblstrmod.setText(""+c.modgetter(c.getStr()));
-    lbldexstat.setText("Dexterity "+c.getDex());
+    
+    int temp1, temp2;
+    temp1 = c.getStr();
+    temp2 = c.getDex();
+       
+    
+    lblstrstat.setText("Strength " + temp1);
+    lblstrmod.setText(""+ c.modgetter(c.getStr()));
+    lbldexstat.setText("Dexterity " + temp2);
     dexstat.setText(""+c.modgetter(c.getDex()));
+    
+    c.setDex(temp1);
+    c.setStr(temp2);
+    
     }//GEN-LAST:event_dwnstrActionPerformed
 
     private void updexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updexActionPerformed
-         lblstrstat.setText("Strength "+c.getDex());
+    lblstrstat.setText("Strength " + c.getDex());
     lblstrmod.setText(""+c.modgetter(c.getDex()));
-    lbldexstat.setText("Dexterity "+c.getStr());
+    lbldexstat.setText("Dexterity " + c.getStr());
     dexstat.setText(""+c.modgetter(c.getStr()));
     }//GEN-LAST:event_updexActionPerformed
 
@@ -1388,7 +1398,7 @@ String race="";
         for (String atkn:c.getattack()) {
              atk.addElement(atkn);
         }
-    
+    mnfight.setEnabled(false);
     }//GEN-LAST:event_mnfightActionPerformed
 
     private void mnhumanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnhumanActionPerformed
@@ -1419,7 +1429,9 @@ String race="";
     }//GEN-LAST:event_btnsetSkillsActionPerformed
 
     private void mnWizardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnWizardActionPerformed
-    
+     DefaultPopup popup = new DefaultPopup();
+        popup.setVisible(true);
+        char response = popup.getSelected();
         c= new Wizard(txtname.getText(),race);
         c.abilities();
             c.proficiencies();
@@ -1459,6 +1471,7 @@ String race="";
         for (String atkn:c.getattack()) {
              atk.addElement(atkn);
         }
+       
     
     }//GEN-LAST:event_mnWizardActionPerformed
 

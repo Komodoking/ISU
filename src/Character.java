@@ -40,6 +40,32 @@ public abstract class Character {
        getRaceData(r);
    }
 
+    public void setStr(int str) {
+        this.str = str;
+    }
+
+    public void setDex(int dex) {
+        this.dex = dex;
+    }
+
+    public void setCon(int con) {
+        this.con = con;
+    }
+
+    public void setIint(int iint) {
+        this.iint = iint;
+    }
+
+    public void setWis(int wis) {
+        this.wis = wis;
+    }
+
+    public void setCha(int cha) {
+        this.cha = cha;
+    }
+   
+   
+
     public int getSpd() {
         return spd;
     }
