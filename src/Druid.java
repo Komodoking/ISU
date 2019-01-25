@@ -8,8 +8,10 @@ public class Druid extends Character {
     ArrayList<String> spelllist;
     public Druid(String n, String r) {
         super(n, r);
-         splattack = getWis() + pb;
-        splsave = 8 + pb + getWis();
+         splattack = modgetter(getWis()) + pb;
+        splsave = 8 + pb + modgetter(getWis());
+        spelllist=new ArrayList<String>();
+cantriplist=new ArrayList<String>();
     }
 
     protected int hpget(int c) {
@@ -41,13 +43,13 @@ public class Druid extends Character {
     protected void attacks(int m, int p, char a) {
         int sum=m+p;
         if(a=='a'){
-            addAttack("Schimitar "+sum+"\t1d6+ "+m);
-            addAttack("Produce Flame:"+splattack+"\t1d8+ "+splattack);
+            addAttack("Schimitar "+sum+" 1d6+ "+m);
+            addAttack("Produce Flame:"+splattack+" 1d8+ "+splattack);
             
         }else{
-            addAttack("Mace "+sum+"\t1d6+ "+m);
-        addAttack("Dagger "+sum+"\t1d4+ "+m+" Range 20/60");
-              addAttack("Thunderwave: "+"Con Save: "+splsave+"\t2d8"+splattack);
+            addAttack("Mace "+sum+" 1d6+ "+m);
+        addAttack("Dagger "+sum+" 1d4+ "+m+" Range 20/60");
+              addAttack("Thunderwave: "+"Con Save: "+splsave+" d8"+splattack);
         }
     }
 
@@ -69,7 +71,7 @@ public class Druid extends Character {
           int money =2*(int)(Math.random()*4+1)*10;
         return money;
     }
-    public void CantripList(char a){
+protected void CantripList(char a){
         if(a=='a'){
             addCantrip("Produce Flame:A flickering flame appears in your hand. The flame remains there for the duration and harms neither you nor your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet. The spell ends if you dismiss it as an action or if you cast it again. \n" +
 "You can also attack with the flame, although doing so ends the spell. When you cast this spell, or as an action on a later turn, you can hurl the flame at a creature within 30 feet of you. Make a ranged spell attack. On a hit, the target takes 1d8 fire damage. \n" +
@@ -82,7 +84,7 @@ public class Druid extends Character {
             addCantrip("Shillelagh:The wood of a club or quarterstaff you are holding is imbued with nature's power. For the duration, you can use your spellcasting ability instead of Strength for the attack and damage rolls of melee attacks using that weapon, and the weapon's damage die becomes a d8. The weapon also becomes magical, if it isn't already. The spell ends if you cast it again or if you let go of the weapon.");
         }
     }
-    public void SpellList(char a){
+    protected void SpellList(char a){
         if(a=='a'){
             addSpell("Create or Destroy water:You either create or destroy water. \n" +
 "Create Water. You create up to 10 gallons of clean water within range in an open container. Alternatively, the water falls as rain in a 30-foot cube within range, extinguishing exposed flames in the area. \n" +

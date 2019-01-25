@@ -14,7 +14,7 @@ public class Barbarian extends Character {
  
     protected int acget(char a,int d) {
        int hp= 10;
-       int c=getCon();
+       int c=modgetter(getCon());
        return 10+d+c;
     }
 
@@ -38,15 +38,15 @@ public class Barbarian extends Character {
     protected void attacks(int m, int p, char a) {
         int sum= m+p;
         if(a=='a'){
-            addAttack("Greataxe "+sum+"\t1d12+"+m);
-            addAttack("Javelin x4"+sum+"\t1d6+"+m+"Range 30/120");
-             addAttack("Handaxe"+sum+"\t1d6 +"+m+" Range 20/60");
-         addAttack("Handaxe"+sum+"\t1d6 +"+m+" Range 20/60");
+            addAttack("Greataxe "+sum+" 1d12+"+m);
+            addAttack("Javelin x4"+sum+" 1d6+"+m+"Range 30/120");
+             addAttack("Handaxe"+sum+" 1d6 +"+m+" Range 20/60");
+         addAttack("Handaxe"+sum+" 1d6 +"+m+" Range 20/60");
         }
         else{
-            addAttack("Glaive "+sum+"\t1d10+"+m);
-            addAttack("Sling"+sum+"\t1d4+"+m);
-            addAttack("Javelin x4"+sum+"\t1d6+"+m+"Range 30/120");
+            addAttack("Glaive "+sum+" 1d10+"+m);
+            addAttack("Sling"+sum+" 1d4+"+m);
+            addAttack("Javelin x4"+sum+" 1d6+"+m+"Range 30/120");
         }
     }
 

@@ -50,13 +50,13 @@ public class Paladin extends Character{
     protected void attacks(int m, int p, char a) {
         int sum= m+p;
      if(a=='a'){
-         addAttack("Greatsword"+sum+"\t2d6 +"+m);
-         addAttack("Javelin x5"+sum+"\t1d6+"+m+"Range 30/120");
+         addAttack("Greatsword"+sum+" 2d6 +"+m);
+         addAttack("Javelin x5"+sum+" 1d6+"+m+"Range 30/120");
          
      }
      else{
-         addAttack("Lance "+sum+"\t1d12+ "+m);
-addAttack("Shortbow "+sum+"\t1d6+ "+m+"Range:80/320");
+         addAttack("Lance "+sum+" 1d12+ "+m);
+addAttack("Shortbow "+sum+" 1d6+ "+m+"Range:80/320");
      }
     }
 

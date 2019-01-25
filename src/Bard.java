@@ -11,6 +11,8 @@ public class Bard extends Character {
         super(n, r);
         splattack = getCha() + pb;
         splsave = 8 + pb + getCha();
+        spelllist=new ArrayList<String>();
+cantriplist=new ArrayList<String>();
     }
 
     @Override
@@ -45,12 +47,12 @@ public class Bard extends Character {
     protected void attacks(int m, int p, char a) {
         int sum = m + p;
         if (a == 'a') {
-            addAttack("Rapier " + sum + "\t1d6+ " + m);
+            addAttack("Rapier " + sum + " 1d6+ " + m);
             addAttack("Viscious Mockery "+"Wis save:"+splsave+"\t1d4+ "+splattack);
-            addAttack("Dagger "+sum+"\t1d4+ "+m+" Range 20/60");
+            addAttack("Dagger "+sum+" 1d4+ "+m+" Range 20/60");
         } else {
             addAttack("Longsword " + sum + "\t1d10 " + m);
-             addAttack("Dagger "+sum+"\t1d4+ "+m+" Range 20/60");
+             addAttack("Dagger "+sum+" 1d4+ "+m+" Range 20/60");
         }
     }
 

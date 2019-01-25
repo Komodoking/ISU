@@ -19,6 +19,8 @@ public class Dndsheet extends javax.swing.JFrame {
     DefaultListModel listporf = new DefaultListModel();
      DefaultListModel Equip = new DefaultListModel();
       DefaultListModel atk = new DefaultListModel();
+       DefaultListModel Cantrip = new DefaultListModel();
+      DefaultListModel Spelllist = new DefaultListModel();
     int skillcount=0;
     String skills[] = {null,null};
     Character c;
@@ -29,6 +31,8 @@ String race="";
         listaby.setModel(ab);
         lstequipe.setModel(Equip);
         lstattacks.setModel(atk);
+        lstCan.setModel(Cantrip);
+        Lstspell.setModel(Spelllist);
         
     }
 
@@ -61,7 +65,6 @@ String race="";
         wismod = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         lblrace = new javax.swing.JLabel();
-        lblallingement = new javax.swing.JLabel();
         dwnstr = new javax.swing.JButton();
         dwndex = new javax.swing.JButton();
         dwncon = new javax.swing.JButton();
@@ -73,7 +76,6 @@ String race="";
         upcon = new javax.swing.JButton();
         updex = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        lblgender = new javax.swing.JLabel();
         lblperc = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -111,8 +113,6 @@ String race="";
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
-        lblheight = new javax.swing.JLabel();
-        lblweight = new javax.swing.JLabel();
         lblspd = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -137,11 +137,11 @@ String race="";
         lstequipe = new javax.swing.JList<>();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        lstCan = new javax.swing.JList<>();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<>();
+        Lstspell = new javax.swing.JList<>();
         lblsplslots = new javax.swing.JLabel();
         lblclass = new javax.swing.JLabel();
         btnreset = new javax.swing.JButton();
@@ -207,8 +207,6 @@ String race="";
         jLabel1.setText("Experience points:0");
 
         lblrace.setText("Race:");
-
-        lblallingement.setText("Allignement:");
 
         dwnstr.setText("Switch Down");
         dwnstr.addActionListener(new java.awt.event.ActionListener() {
@@ -281,8 +279,6 @@ String race="";
         });
 
         jLabel4.setText("Character Name:");
-
-        lblgender.setText("Gender");
 
         lblperc.setText("Passive Wisdom(Perception)");
 
@@ -604,10 +600,6 @@ String race="";
 
         jLabel13.setText("Backstory:");
 
-        lblheight.setText("Height:");
-
-        lblweight.setText("Weight:");
-
         lblspd.setText("Speed:");
 
         jLabel17.setText("Current Hp:");
@@ -680,13 +672,13 @@ String race="";
 
         jLabel7.setText("Spell list");
 
-        jScrollPane3.setViewportView(jList2);
+        jScrollPane3.setViewportView(lstCan);
 
         jLabel10.setText("Cantrips");
 
         jLabel11.setText("Spells");
 
-        jScrollPane4.setViewportView(jList3);
+        jScrollPane4.setViewportView(Lstspell);
 
         lblclass.setText("Class:");
 
@@ -880,7 +872,6 @@ String race="";
                                         .addComponent(upcon, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(dwnstr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(charmod)
-                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9)
                             .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -906,8 +897,12 @@ String race="";
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(dwnwis, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(upwis, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(upcha, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(13, 13, 13)
+                                    .addComponent(upcha, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtlvl)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -962,29 +957,17 @@ String race="";
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
-                        .addGap(115, 115, 115)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblgender)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblrace, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblclass)))
+                        .addGap(111, 111, 111)
+                        .addComponent(lblrace, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblallingement)
-                            .addComponent(txtlvl))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(lblheight)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblweight))))
+                        .addComponent(lblclass))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel8)))
+                        .addComponent(jLabel8))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(279, 279, 279)
+                        .addComponent(jLabel1)))
+                .addGap(124, 124, 124)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
@@ -1001,17 +984,15 @@ String race="";
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnreset)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblgender)
-                                .addComponent(lblallingement)
-                                .addComponent(lblheight)
-                                .addComponent(lblweight))))
-                    .addComponent(btnreset))
+                                .addComponent(lblrace)
+                                .addComponent(lblclass)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -1080,12 +1061,10 @@ String race="";
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblrace)
                                 .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtlvl)
-                                .addComponent(jLabel1)
-                                .addComponent(lblclass))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtlvl))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -1154,7 +1133,18 @@ String race="";
     }
     
     private void dwndexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwndexActionPerformed
-        // TODO add your handling code here:
+          int temp1, temp2;
+    temp1 = c.getDex();
+    temp2 = c.getCon();
+       
+    
+  
+    lbldexstat.setText("Dexterity " + temp1);
+    dexstat.setText(""+c.modgetter(temp1));
+      lblconstat.setText("Constitution "+temp2);
+    conmod.setText(""+c.modgetter(temp2));
+    c.setDex(temp2);
+    c.setCon(temp1);
     }//GEN-LAST:event_dwndexActionPerformed
 
     private void StrengthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StrengthActionPerformed
@@ -1292,9 +1282,9 @@ String race="";
        
     
     lblstrstat.setText("Strength " + temp1);
-    lblstrmod.setText(""+ c.modgetter(c.getStr()));
+    lblstrmod.setText(""+ c.modgetter(temp1));
     lbldexstat.setText("Dexterity " + temp2);
-    dexstat.setText(""+c.modgetter(c.getDex()));
+    dexstat.setText(""+c.modgetter(temp2));
     
     c.setDex(temp1);
     c.setStr(temp2);
@@ -1302,17 +1292,34 @@ String race="";
     }//GEN-LAST:event_dwnstrActionPerformed
 
     private void updexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updexActionPerformed
-    lblstrstat.setText("Strength " + c.getDex());
-    lblstrmod.setText(""+c.modgetter(c.getDex()));
-    lbldexstat.setText("Dexterity " + c.getStr());
-    dexstat.setText(""+c.modgetter(c.getStr()));
+     int temp1, temp2;
+    temp1 = c.getStr();
+    temp2 = c.getDex();
+       
+    
+    lblstrstat.setText("Strength " + temp1);
+    lblstrmod.setText(""+ c.modgetter(temp2));
+    lbldexstat.setText("Dexterity " + temp2);
+    dexstat.setText(""+c.modgetter(temp2));
+    
+    c.setDex(temp1);
+    c.setStr(temp2);
+    
     }//GEN-LAST:event_updexActionPerformed
 
     private void upconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upconActionPerformed
-         lblconstat.setText("Constitution "+c.getDex());
-    conmod.setText(""+c.modgetter(c.getDex()));
-    lbldexstat.setText("Dexterity "+c.getCon());
-    dexstat.setText(""+c.modgetter(c.getCon()));
+               int temp1, temp2;
+    temp1 = c.getDex();
+    temp2 = c.getCon();
+       
+    
+  
+    lbldexstat.setText("Dexterity " + temp1);
+    dexstat.setText(""+c.modgetter(temp1));
+      lblconstat.setText("Constitution "+temp2);
+    conmod.setText(""+c.modgetter(temp2));
+    c.setDex(temp2);
+    c.setCon(temp1);
     }//GEN-LAST:event_upconActionPerformed
 
     private void dwnconActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dwnconActionPerformed
@@ -1359,9 +1366,18 @@ String race="";
     }//GEN-LAST:event_upchaActionPerformed
 
     private void mnfightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnfightActionPerformed
-     c= new Fighter(txtname.getText(),race);
+   RealFighterPopup popup = new RealFighterPopup(this, true);
+        popup.setModal(true);
+        popup.setLocationRelativeTo(this);
+        popup.setVisible(true);
+        char response = popup.getSelected();
+        String style=popup.getFtstyle();
+
+        Fighter c= new Fighter(txtname.getText(),race);
+        c.FightingStyle(style);
     c.abilities();
             c.proficiencies();
+            c.equipement(response);
      Strength.setSelected(true);
      Dexterity.setSelected(false);
      Constitiution.setSelected(true);
@@ -1381,7 +1397,10 @@ String race="";
     wismod.setText(""+c.modgetter(c.getWis()));
         lblcharstat.setText("Charisma "+c.getCha());
     charmod.setText(""+c.modgetter(c.getCha()));
+      c.attacks(c.modgetter(c.getDex()), c.pb, response);
  c.hpget(c.getCon());
+ c.acget(response, c.modgetter(c.dex));
+ lblac.setText("Armor Class: "+c.getAc());
     lblmaxhp.setText("Max Hp "+c.getHp());
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
@@ -1429,10 +1448,15 @@ String race="";
     }//GEN-LAST:event_btnsetSkillsActionPerformed
 
     private void mnWizardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnWizardActionPerformed
-     DefaultPopup popup = new DefaultPopup();
+     ActualPopup popup = new ActualPopup(this, true);
+        popup.setModal(true);
+        popup.setLocationRelativeTo(this);
         popup.setVisible(true);
         char response = popup.getSelected();
-        c= new Wizard(txtname.getText(),race);
+       Wizard c= new Wizard(txtname.getText(),race);
+        c.equipement(response);
+       c.spelllist(response);
+       c.cantrips(response);
         c.abilities();
             c.proficiencies();
     Strength.setSelected(false);
@@ -1454,7 +1478,10 @@ String race="";
     wismod.setText(""+c.modgetter(c.getWis()));
         lblcharstat.setText("Charisma "+c.getCha());
     charmod.setText(""+c.modgetter(c.getCha()));
+     c.attacks(c.modgetter(c.getDex()), c.pb, response);
  c.hpget(c.getCon());
+ c.acget(response, c.modgetter(c.dex));
+ lblac.setText("Armor Class: "+c.getAc());
     lblmaxhp.setText("Max Hp "+c.getHp());
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
@@ -1471,6 +1498,13 @@ String race="";
         for (String atkn:c.getattack()) {
              atk.addElement(atkn);
         }
+       for (String spl:c.getSpell()) {
+             Spelllist.addElement(spl);
+        }
+       for (String Can:c.getCantrip()) {
+             Cantrip.addElement(Can);
+        }
+       
        
     
     }//GEN-LAST:event_mnWizardActionPerformed
@@ -1532,10 +1566,16 @@ String race="";
     }//GEN-LAST:event_mnelfActionPerformed
 
     private void mnbardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnbardActionPerformed
-
-        c=new Bard(txtname.getText(), race);
+ ActualPopup popup = new ActualPopup(this, true);
+        popup.setModal(true);
+        popup.setLocationRelativeTo(this);
+        popup.setVisible(true);
+        char response = popup.getSelected();
+      Bard  c=new Bard(txtname.getText(), race);
         c.abilities();
             c.proficiencies();
+            c.Cantriplist(response);
+            c.Spellist(response);
         Strength.setSelected(false);
      Dexterity.setSelected(true);
      Constitiution.setSelected(false);
@@ -1555,7 +1595,10 @@ String race="";
     wismod.setText(""+c.modgetter(c.getWis()));
         lblcharstat.setText("Charisma "+c.getCha());
     charmod.setText(""+c.modgetter(c.getCha()));
+    c.attacks(c.modgetter(c.getDex()), c.pb, response);
  c.hpget(c.getCon());
+ c.acget(response, c.modgetter(c.dex));
+ lblac.setText("Armor Class: "+c.getAc());
     lblmaxhp.setText("Max Hp "+c.getHp());
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
@@ -1572,10 +1615,20 @@ String race="";
         for (String atkn:c.getattack()) {
              atk.addElement(atkn);
         }
+         for (String spl:c.getSpell()) {
+             Spelllist.addElement(spl);
+        }
+       for (String Can:c.getCantrip()) {
+             Cantrip.addElement(Can);
+        }
     }//GEN-LAST:event_mnbardActionPerformed
 
     private void mnbarbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnbarbActionPerformed
-
+  ActualPopup popup = new ActualPopup(this, true);
+        popup.setModal(true);
+        popup.setLocationRelativeTo(this);
+        popup.setVisible(true);
+        char response = popup.getSelected();
         c=new Barbarian(txtname.getText(), race);
         c.abilities();
             c.proficiencies();
@@ -1598,7 +1651,10 @@ String race="";
     wismod.setText(""+c.modgetter(c.getWis()));
         lblcharstat.setText("Charisma "+c.getCha());
     charmod.setText(""+c.modgetter(c.getCha()));
+    c.attacks(c.modgetter(c.getStr()), c.pb, response);
  c.hpget(c.getCon());
+ c.acget(response, c.modgetter(c.dex));
+ lblac.setText("Armor Class: "+c.getAc());
     lblmaxhp.setText("Max Hp "+c.getHp());
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
@@ -1614,6 +1670,7 @@ String race="";
         for (String atkn:c.getattack()) {
              atk.addElement(atkn);
         }
+        
     }//GEN-LAST:event_mnbarbActionPerformed
 
     private void mnAllingementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnAllingementActionPerformed
@@ -1621,7 +1678,11 @@ String race="";
     }//GEN-LAST:event_mnAllingementActionPerformed
 
     private void mnMonkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnMonkActionPerformed
-      
+        ActualPopup popup = new ActualPopup(this, true);
+        popup.setModal(true);
+        popup.setLocationRelativeTo(this);
+        popup.setVisible(true);
+        char response = popup.getSelected();
         c=new Monk(txtname.getText(), race);
         Strength.setSelected(true);
      Dexterity.setSelected(true);
@@ -1642,7 +1703,10 @@ String race="";
     wismod.setText(""+c.modgetter(c.getWis()));
         lblcharstat.setText("Charisma "+c.getCha());
     charmod.setText(""+c.modgetter(c.getCha()));
+    c.attacks(c.modgetter(c.getDex()), c.pb, response);
  c.hpget(c.getCon());
+ c.acget(response, c.modgetter(c.dex));
+ lblac.setText("Armor Class: "+c.getAc());
     lblmaxhp.setText("Max Hp "+c.getHp());
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
@@ -1786,10 +1850,16 @@ String race="";
     }//GEN-LAST:event_mnbribActionPerformed
 
     private void mndruidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mndruidActionPerformed
-            c=new Druid(txtname.getText(), race);
+          ActualPopup popup = new ActualPopup(this, true);
+        popup.setModal(true);
+        popup.setLocationRelativeTo(this);
+        popup.setVisible(true);
+        char response = popup.getSelected();    
+        Druid c=new Druid(txtname.getText(), race);
             c.abilities();
             c.proficiencies();
-            
+            c.CantripList(response);
+            c.SpellList(response);
         Strength.setSelected(false);
      Dexterity.setSelected(false);
      Constitiution.setSelected(false);
@@ -1809,7 +1879,10 @@ String race="";
     wismod.setText(""+c.modgetter(c.getWis()));
         lblcharstat.setText("Charisma "+c.getCha());
     charmod.setText(""+c.modgetter(c.getCha()));
+    c.attacks(c.modgetter(c.getStr()), c.pb, response);
  c.hpget(c.getCon());
+ c.acget(response, c.modgetter(c.dex));
+ lblac.setText("Armor Class: "+c.getAc());
     lblmaxhp.setText("Max Hp "+c.getHp());
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
@@ -1826,10 +1899,21 @@ String race="";
         for (String atkn:c.getattack()) {
              atk.addElement(atkn);
         }
+         for (String spl:c.getSpell()) {
+             Spelllist.addElement(spl);
+        }
+       for (String Can:c.getCantrip()) {
+             Cantrip.addElement(Can);
+        }
     }//GEN-LAST:event_mndruidActionPerformed
 
     private void MnRogueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnRogueActionPerformed
-      c=new Druid(txtname.getText(), race);
+     ActualPopup popup = new ActualPopup(this, true);
+        popup.setModal(true);
+        popup.setLocationRelativeTo(this);
+        popup.setVisible(true);
+        char response = popup.getSelected();
+        c=new Druid(txtname.getText(), race);
       c.abilities();
             c.proficiencies();
         Strength.setSelected(false);
@@ -1851,7 +1935,10 @@ String race="";
     wismod.setText(""+c.modgetter(c.getWis()));
         lblcharstat.setText("Charisma "+c.getCha());
     charmod.setText(""+c.modgetter(c.getCha()));
+    c.attacks(c.modgetter(c.getDex()), c.pb, response);
  c.hpget(c.getCon());
+ c.acget(response, c.modgetter(c.dex));
+ lblac.setText("Armor Class: "+c.getAc());
     lblmaxhp.setText("Max Hp "+c.getHp());
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
@@ -1871,6 +1958,11 @@ String race="";
     }//GEN-LAST:event_MnRogueActionPerformed
 
     private void mnpalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnpalActionPerformed
+        ActualPopup popup = new ActualPopup(this, true);
+        popup.setModal(true);
+        popup.setLocationRelativeTo(this);
+        popup.setVisible(true);
+        char response = popup.getSelected();
         c=new Paladin(txtname.getText(), race);
         c.abilities();
             c.proficiencies();
@@ -1893,7 +1985,10 @@ String race="";
     wismod.setText(""+c.modgetter(c.getWis()));
         lblcharstat.setText("Charisma "+c.getCha());
     charmod.setText(""+c.modgetter(c.getCha()));
+    c.attacks(c.modgetter(c.getStr()), c.pb, response);
  c.hpget(c.getCon());
+ c.acget(response, c.modgetter(c.dex));
+ lblac.setText("Armor Class: "+c.getAc());
     lblmaxhp.setText("Max Hp "+c.getHp());
     lblinit.setText("Initiative "+c.modgetter(c.getDex()));
     lblperc.setText("Passive Wisdom(Perception) "+c.getPerc());
@@ -1966,6 +2061,7 @@ String race="";
     private javax.swing.JRadioButton Intelligence;
     private javax.swing.JLabel Lblgold;
     private javax.swing.JList<String> ListPorf;
+    private javax.swing.JList<String> Lstspell;
     private javax.swing.JMenuItem MnAllingement;
     private javax.swing.JMenuItem MnRogue;
     private javax.swing.JRadioButton Strength;
@@ -2019,8 +2115,6 @@ String race="";
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JList<String> jList3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -2041,13 +2135,10 @@ String race="";
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JLabel lblac;
-    private javax.swing.JLabel lblallingement;
     private javax.swing.JLabel lblcharstat;
     private javax.swing.JLabel lblclass;
     private javax.swing.JLabel lblconstat;
     private javax.swing.JLabel lbldexstat;
-    private javax.swing.JLabel lblgender;
-    private javax.swing.JLabel lblheight;
     private javax.swing.JLabel lblinit;
     private javax.swing.JLabel lblintstat;
     private javax.swing.JLabel lblmaxhp;
@@ -2057,9 +2148,9 @@ String race="";
     private javax.swing.JLabel lblsplslots;
     private javax.swing.JLabel lblstrmod;
     private javax.swing.JLabel lblstrstat;
-    private javax.swing.JLabel lblweight;
     private javax.swing.JLabel lblwisstat;
     private javax.swing.JList<String> listaby;
+    private javax.swing.JList<String> lstCan;
     private javax.swing.JList<String> lstattacks;
     private javax.swing.JList<String> lstequipe;
     private javax.swing.JMenuItem mnAllingement;

@@ -47,12 +47,12 @@ public class Rogue extends Character{
     protected void attacks(int m, int p, char a) {
       int sum=m+p;
         if(a=='a'){
-          addAttack("Rapier " + sum + "\t1d6+ " + m);
-            addAttack("Shortbow "+sum+"\t1d6+ "+m+"Range:80/320");
+          addAttack("Rapier " + sum + " 1d6+ " + m);
+            addAttack("Shortbow "+sum+" 1d6+ "+m+"Range:80/320");
       }
       else{
-          addAttack("Shortsword "+sum+"\t1d6+ "+m);
-          addAttack("Shortsword "+sum+"\t1d6+ "+m);
+          addAttack("Shortsword "+sum+" 1d6+ "+m);
+          addAttack("Shortsword "+sum+" 1d6+ "+m);
       }
     }
 

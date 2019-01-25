@@ -11,6 +11,9 @@ ArrayList <String> spelllist;
         super(n, r);
         splattack=getIint()+pb;
         splsave=8+pb+getIint();
+      
+spelllist=new ArrayList<String>();
+cantriplist=new ArrayList<String>();
     }
 
  
@@ -40,8 +43,9 @@ ArrayList <String> spelllist;
          String epack[]={"Backpack","Bedroll","Mess kit","Torch x 10","10 days of rations", " Waterskin"," 50 ft rope"};
          for (int i = 0; i < epack.length; i++) {
              addEquip(epack[i]);
-             addEquip("Wizard Wand");
-         }
+            
+         } 
+         addEquip("Wizard Wand");
                }
   
     }
@@ -109,14 +113,14 @@ protected void spelllist(char a){
     protected void attacks(int m, int p, char a) {
         int sum=m+p;
         if(a=='a'){
-            addAttack("Quarter Staff "+sum+"\t1d6+ "+m);
+            addAttack("Quarter Staff "+sum+" 1d6+ "+m);
             addAttack("Acid Splash "+"Dex Save:"+splsave+"\t1d6+"+splattack);
             addAttack("Thunderwave: "+"Con Save: "+splsave+"\t2d8"+splattack);
         }
         else{
-            addAttack("Dagger "+sum+"\t1d4+ "+m);
-            addAttack("Firebolt "+splattack+"\t1d10+ "+splattack);
-            addAttack("Magic Missle(x3):"+"Negate accuracy"+"1d4+1"+splattack);
+            addAttack("Dagger "+sum+" 1d4+ "+m);
+            addAttack("Firebolt "+splattack+" 1d10+ "+splattack);
+            addAttack("Magic Missle(x3):"+"Negate accuracy"+" 1d4+1 "+splattack);
         }
         
     }

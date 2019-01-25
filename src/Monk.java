@@ -14,7 +14,7 @@ public class Monk extends Character {
     @Override
     protected int acget(char t, int d) {
         int hp= 10;
-       int c=getWis();
+       int c=modgetter(getWis());
        return 10+d+c;
     }
 
@@ -48,14 +48,14 @@ public class Monk extends Character {
     protected void attacks(int m, int p, char a) {
         int sum=m+p;
         if(a=='a'){
-            addAttack("Shortsword "+sum+"\t1d6+ "+m);
-            addAttack("Unarmed Strike "+sum+"\t1d4 "+m);
-             addAttack("Dart x10 "+sum+"\t1d4 "+m+" Range: 20/60");
+            addAttack("Shortsword "+sum+" 1d6+ "+m);
+            addAttack("Unarmed Strike "+sum+" 1d4 "+m);
+             addAttack("Dart x10 "+sum+" 1d4 "+m+" Range: 20/60");
         }
         else{
-            addAttack("Spear "+sum+"\t1d6 "+m+" Range: 20/60");
-            addAttack("Unarmed Strike "+sum+"\t1d4 "+m);
-            addAttack("Dart x10 "+sum+"\t1d4 "+m+" Range: 20/60");
+            addAttack("Spear "+sum+" 1d6 "+m+" Range: 20/60");
+            addAttack("Unarmed Strike "+sum+" 1d4 "+m);
+            addAttack("Dart x10 "+sum+" 1d4 "+m+" Range: 20/60");
         }
     }
 

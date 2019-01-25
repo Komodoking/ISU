@@ -66,7 +66,7 @@ public class Fighter extends Character {
             addAbility("Archery: You gain a +2 bonus to attack rolls you make with ranged weapons.");
         
         }
-        else if(style=="Defence"){
+        else if(style=="Defense"){
             addAbility("Defense: While you are wearing armor, you gain a +1 bonus to AC.");
        ac++;
         }
@@ -104,15 +104,15 @@ public class Fighter extends Character {
     
      int sum= m+p;
      if(a=='a'){
-         addAttack(Grtsword+"\t"+sum+"\t2d6 +"+m);
-         addAttack(lCrossbow+"\t"+sum+"\t1d8 +"+m+" Range 80/320"); 
+         addAttack(Grtsword+" "+sum+" 2d6 +"+m);
+         addAttack(lCrossbow+" "+sum+" 1d8 +"+m+" Range 80/320"); 
      }
      else if(a=='b'){
-         addAttack(Lngbow+"\t"+sum+"\t1d8"+m+" Range 150/600");
-         addAttack(Handaxe+"\t"+sum+"\t1d6 +"+m+" Range 20/60");
-         addAttack(Handaxe+"\t"+sum+"\t1d6 +"+m+" Range 20/60");
-         addAttack(pike+"\t"+sum+"\t1d10 +"+m);
-         addAttack(Mrningstar+"\t"+sum+"\t1d8 +"+m);
+         addAttack(Lngbow+" "+sum+" 1d8"+m+" Range 150/600");
+         addAttack(Handaxe+" "+sum+" 1d6 +"+m+" Range 20/60");
+         addAttack(Handaxe+" "+sum+" 1d6 +"+m+" Range 20/60");
+         addAttack(pike+" "+sum+" 1d10 +"+m);
+         addAttack(Mrningstar+" "+sum+" 1d8 +"+m);
         
   
      
